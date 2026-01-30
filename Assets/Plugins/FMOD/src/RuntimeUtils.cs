@@ -605,10 +605,10 @@ namespace FMODUnity
 
         public static void DebugLogException(Exception e)
         {
-            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
+            /*if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
             {
                 Debug.LogException(e);
-            }
+            }*/
         }
 
 #if UNITY_EDITOR
