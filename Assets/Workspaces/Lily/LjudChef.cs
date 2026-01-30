@@ -4,14 +4,23 @@ using UnityEngine;
 using FMOD;
 using FMOD.Studio;
 using FMODUnity;
+using Debug = UnityEngine.Debug;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class LjudChef : MonoBehaviour
 {
     public static LjudChef Instans { get; private set; }
     private Bank mästarbanken;
-    private List<LjudKälla> ljudreferenser;
-    public LjudKälla sounds;
-
+    
+    [Header("Dessa variabler används för närvarande inte.")]
+    public MaskLjud maskljud;
+    public UILjud uILjud;
+    public IntroLjud introLjud;
+    public AffärsLjud affärsLjud;
+    public FiskLjud fiskLjud;
+    public FiskLjud maskeradFiskLjud;
+    public MusikScript musikLjud;
+    
     private void Awake()
     {
         if (Instans != null && Instans != this)
@@ -27,26 +36,27 @@ public class LjudChef : MonoBehaviour
             mästarbanken.loadSampleData();
         }
     }
-    
-    public List<LjudKälla> GetEventInstances()
+
+    public void SpelaEnskottsLjud(EventReference ljud)
     {
-        return ljudreferenser;
+        RuntimeManager.PlayOneShot(ljud);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public EventInstance SpelaLjud(EventReference ljud)
     {
+        #if UNITY_EDITOR
+        Debug.Log($"Spelar event: {ljud.Path}");
+        #endif
         
+        EventInstance instans = RuntimeManager.CreateInstance(ljud);
+        instans.start();
+        return instans;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StoppaLjud(EventInstance ljud)
     {
-        RuntimeManager.PlayOneShot(sounds.fotsteg);
-    }
 
-    public void NyLjudKällaSkapades(LjudKälla ljudref)
-    {
-        
+        ljud.stop(STOP_MODE.ALLOWFADEOUT);
+        ljud.release();
     }
 }
