@@ -16,7 +16,7 @@ public class MenuManagerTest : MonoBehaviour
 
     public void GameStateManagerOnGameStateChanged(GameState state)
     {
-        
+        Debug.Log($"GameStateManagerOnGameStateChanged metoden körs");
     }
     void Start()
     {

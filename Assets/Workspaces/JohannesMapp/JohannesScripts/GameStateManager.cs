@@ -31,13 +31,17 @@ public class GameStateManager : MonoBehaviour
         switch (newState)
         {
             case GameState.Casting:
+                Debug.Log(newState);
+                //återställ speltimer och hajscore?
                 break;
-            case GameState.Water:
+            case GameState.Water: //kan ta bort "water" om vi inte har en intro animation där spelaren inte kan röra på sig. Fiskar kanske inte ska spawna
                 Debug.Log(newState);
                 break;
             case GameState.Victory:
+                Debug.Log(newState);
                 break;
             case GameState.Death:
+                Debug.Log(newState);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
