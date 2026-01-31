@@ -43,6 +43,9 @@ public class GameStateManager : MonoBehaviour
             case GameState.Death:
                 Debug.Log(newState);
                 break;
+            case GameState.Pause:
+                Debug.Log(newState);
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
@@ -60,6 +63,7 @@ public enum GameState
     Casting,
     Water,
     Victory,
-    Death
+    Death,
+    Pause
         
 }
