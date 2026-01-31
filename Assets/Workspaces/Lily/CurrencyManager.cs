@@ -6,8 +6,9 @@ public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager Instance;
     
-    public int currentCurrency;
+    public int currentCurrency = 0;
     public int minimumCurrency = 0;
+    public TMP_Text currentCurrencyText;
 
     public int currentScore = 0;
     public TMP_Text hajScore;
@@ -38,6 +39,7 @@ public class CurrencyManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         currentCurrency += amount;
+        currentCurrencyText.text = currentCurrency.ToString();
     }
     
     public void AddScore(int amount)
