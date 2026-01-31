@@ -148,8 +148,9 @@ GameObject:
   - component: {fileID: 3514485349810663138}
   - component: {fileID: 8488737750258045228}
   - component: {fileID: 3233788032506163733}
+  - component: {fileID: 1255056718428106553}
   m_Layer: 5
-  m_Name: Button opt
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,4 +257,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8488737750258045228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 77162bd246c3671408c1ebad9ed91d86, type: 2}
+        m_TargetAssemblyTypeName: UILjud, Assembly-CSharp
+        m_MethodName: Klick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1255056718428106553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3795074254010954880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8877529d86a9974dab75edbfacf4afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 77162bd246c3671408c1ebad9ed91d86, type: 2}
+        m_TargetAssemblyTypeName: UILjud, Assembly-CSharp
+        m_MethodName: "Sv\xE4va"
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

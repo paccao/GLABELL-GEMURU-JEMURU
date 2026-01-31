@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "ovanf\xF6rVatten":
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1126776966
+      Data2: 1316313208
+      Data3: -143268714
+      Data4: 919371431
+    Path: event:/AMBIENCE/SEASHORE
   underVatten:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 502798649
+      Data2: 1213962142
+      Data3: 785810572
+      Data4: -1819959053
+    Path: event:/AMBIENCE/UNDERWATER

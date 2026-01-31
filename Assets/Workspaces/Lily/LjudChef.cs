@@ -58,7 +58,7 @@ public class LjudChef : MonoBehaviour
                 musikljud.StoppaMenyMusik();
                 ambiansljud.StoppaUnderVatten();
                 break;
-            case "GAME":
+            case "Game":
                 musikljud.StoppaStridsMusik();
                 break;
             case "SHOP":
@@ -76,7 +76,7 @@ public class LjudChef : MonoBehaviour
                 musikljud.SpelaMenyMusik();
                 ambiansljud.StartaUnderVatten();
                 break;
-            case "GAME":
+            case "Game":
                 musikljud.SpelaStridsMusik();
                 ambiansljud.StartaUnderVatten();
                 break;

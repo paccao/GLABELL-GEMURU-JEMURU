@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiKlick:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1864047193
+      Data2: 1139732400
+      Data3: -1172458349
+      Data4: -756136839
+    Path: event:/SFX/UI/UI_CLICK
   "uiSv\xE4va":
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1919522701
+      Data2: 1083702953
+      Data3: -1320807784
+      Data4: 1874639406
+    Path: event:/SFX/UI/UI_HOVER

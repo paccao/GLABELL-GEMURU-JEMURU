@@ -18,6 +18,9 @@ public class MixerSliderLink : MonoBehaviour
         {
             Debug.LogError("vca är invalid!");
         }
+
+        vca.getVolume(out float volume);
+        slider.value = volume;
     }
 
     public void NärVärdetÄndras(float värde)
