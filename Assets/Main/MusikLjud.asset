@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c8a2ac72884e942992feecf54799e7, type: 3}
+  m_Name: MusikLjud
+  m_EditorClassIdentifier: 
+  stridsmusik:
+    Guid:
+      Data1: -2102251846
+      Data2: 1123660702
+      Data3: -1817618302
+      Data4: 2096311068
+    Path: event:/MUSIC/MUSIC_BATTLE
+  seger:
+    Guid:
+      Data1: -474281995
+      Data2: 1253727988
+      Data3: -896213629
+      Data4: 1556031887
+    Path: event:/MUSIC/STINGER_VICTORY
+  "f\xF6rlust":
+    Guid:
+      Data1: -142743478
+      Data2: 1087936418
+      Data3: -992031046
+      Data4: -601158242
+    Path: event:/MUSIC/STINGER_DEFEAT
+  "aff\xE4rsmusik":
+    Guid:
+      Data1: 1750562378
+      Data2: 1298811273
+      Data3: 1547498118
+      Data4: -642518248
+    Path: event:/MUSIC/MUSIC_SHOP
+  menymusik:
+    Guid:
+      Data1: -745758334
+      Data2: 1304314915
+      Data3: 196621746
+      Data4: -831150798
+    Path: event:/MUSIC/MUSIC_MENU
