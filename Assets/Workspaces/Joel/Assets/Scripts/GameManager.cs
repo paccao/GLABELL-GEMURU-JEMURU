@@ -71,7 +71,7 @@ namespace Workspaces.Joel.Assets.Scripts
         // Runtime variables
         public int CurrentPhase { get; private set; } = 0;
 
-        private float gameTimer = 0f;
+        public float gameTimer { get; private set; } = 0f;
         private float currentPhaseStartTime = 0f;
 
         private void Awake()
