@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Workspaces.Joel.Assets.Scripts;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
@@ -10,6 +11,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public CurrencyManager currencyManager;
 
     private Enemy enemy;
+    
+    public UnityEvent OnDeath;
 
     //public TMP_Text healthText;
     
@@ -48,7 +51,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (isMasked)
             currencyManager.AddMoney(1);
+        currencyManager.AddScore(1);
         enemy.fiskLjud.SpelaDöLjud();
+        OnDeath.Invoke();
         //Note from programmer: inte okej...
         Destroy(gameObject);
     }

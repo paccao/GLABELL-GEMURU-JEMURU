@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public float health;
     [SerializeField] private float maxHealth;
     private PlayerMovement playerMovement;
+    
+    public UnityEvent OnDeath;
 
     //public TMP_Text healthText;
     
@@ -40,6 +43,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Death()
     {
         playerMovement.maskLjud.SpelaDöLjud();
+        OnDeath.Invoke();
     }
 
     private void UpdateHealthTxt()

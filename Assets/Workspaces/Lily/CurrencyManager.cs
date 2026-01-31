@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
@@ -7,6 +8,9 @@ public class CurrencyManager : MonoBehaviour
     
     public int currentCurrency;
     public int minimumCurrency = 0;
+
+    public int currentScore = 0;
+    public TMP_Text hajScore;
 
     public void Awake()
     {
@@ -34,5 +38,11 @@ public class CurrencyManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         currentCurrency += amount;
+    }
+    
+    public void AddScore(int amount)
+    {
+        currentScore += amount;
+        hajScore.text = currentScore.ToString();
     }
 }
