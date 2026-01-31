@@ -8,8 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float movementForce = 1;
     public float dodgeForce = 1;
     public float attackCooldown = 1f;
-    private float attackBetween = 0.1F;
+
+    public bool attackUpgraded = false;
+    public bool rangeUpgraded = false;
+    public bool sppedUpgraded = false;
     
+    
+    private float attackBetween = 0.1F;
     private AnimationController animationController;
     
     private bool isPaused = false;

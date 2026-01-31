@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawnBox: {fileID: 0}
   enemyPrefabs:
-  - {fileID: 1796573033521888240, guid: 0c574294258e0014cacf109de369d31b, type: 3}
+  - {fileID: 7965831744201731053, guid: 61fa54443275cc74d92e5968196b88d7, type: 3}
   spawnOffsetFromEdge: 1
   spawnOffsetFromTop: 1

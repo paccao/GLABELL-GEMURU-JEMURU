@@ -45,48 +45,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameDuration: 180
-  phaseDuration: 10
+  phaseDuration: 30
   spawnPhaseConfigs:
-  - minEnemiesPerWave: 1
-    maxEnemiesPerWave: 3
+  - phaseName: Phase 1
+    minEnemiesPerWave: 1
+    maxEnemiesPerWave: 1
+    gracePeriod: 1
+    spawnInterval: 1.99
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+  - phaseName: Phase 2
+    minEnemiesPerWave: 5
+    maxEnemiesPerWave: 11
+    gracePeriod: 1
+    spawnInterval: 6
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1.5
+  - phaseName: Phase 3
+    minEnemiesPerWave: 15
+    maxEnemiesPerWave: 15
+    gracePeriod: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 3
+  - phaseName: Phase 4
+    minEnemiesPerWave: 1
+    maxEnemiesPerWave: 1
+    gracePeriod: 1
+    spawnInterval: 0.9
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+  - phaseName: Phase 5
+    minEnemiesPerWave: 12
+    maxEnemiesPerWave: 15
+    gracePeriod: 5
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  - minEnemiesPerWave: 10
-    maxEnemiesPerWave: 20
-    spawnInterval: 3
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  - minEnemiesPerWave: 1
+  - phaseName: Phase 6
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
-    spawnInterval: 5
+    gracePeriod: 1
+    spawnInterval: 1
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  - minEnemiesPerWave: 1
-    maxEnemiesPerWave: 3
-    spawnInterval: 5
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  - minEnemiesPerWave: 1
-    maxEnemiesPerWave: 3
-    spawnInterval: 5
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  - minEnemiesPerWave: 1
-    maxEnemiesPerWave: 3
-    spawnInterval: 5
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  - minEnemiesPerWave: 1
-    maxEnemiesPerWave: 3
-    spawnInterval: 5
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-    scoreMultiplier: 1
-  gameTimer: 0
