@@ -42,7 +42,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Death()
     {
-        //enemy.fiskLjud.SpelaDöLjud();
+        enemy.fiskLjud.SpelaDöLjud();
         //Note from programmer: inte okej...
         Destroy(gameObject);
     }
