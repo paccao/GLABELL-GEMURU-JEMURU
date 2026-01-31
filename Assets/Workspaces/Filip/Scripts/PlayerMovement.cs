@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rigidbody; //TODO: Gör automagiskt i start
     public float movementForce = 1;
     public float dodgeForce = 1;
+    //public float gravityForce = 9.81f;
     
     void Start()
     {
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         DoMovement();
+
+        //rigidbody.AddForce(Vector3.down * gravityForce, ForceMode.Acceleration);
     }
 
     void DoMovement()
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Pressed");
         
-        
+        //if (new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) <= )
         
         rigidbody.AddRelativeForce(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * dodgeForce, ForceMode.Impulse);
         
