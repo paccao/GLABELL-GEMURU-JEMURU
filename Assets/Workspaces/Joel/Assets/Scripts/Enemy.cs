@@ -16,6 +16,9 @@ namespace Workspaces.Joel.Assets.Scripts
         private float directionChangeDuration;
         private Vector3 currentRandomDirection;
 
+        [Header("Sound stuffs")] 
+        [SerializeField] private FiskLjud fiskLjud;
+
         private void Start()
         {
             player = GameManager.Instance.Player;

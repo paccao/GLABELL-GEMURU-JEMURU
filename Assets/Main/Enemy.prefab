@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1881821394146329881}
   m_Layer: 9
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,10 +125,12 @@ MonoBehaviour:
   range: 10
   rotateSpeed: 6
   movementSpeed: 3
+  attackOffset: 2
   maskToHit:
     serializedVersion: 2
     m_Bits: 8
   directionChangeTimer: 3
+  fiskLjud: {fileID: 11400000, guid: 8266fc051dc75b34f97837e9c9f7e304, type: 2}
 --- !u!1 &7439223721822112057
 GameObject:
   m_ObjectHideFlags: 0
