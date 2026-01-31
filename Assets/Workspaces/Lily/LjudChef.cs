@@ -13,6 +13,7 @@ public class LjudChef : MonoBehaviour
     public static LjudChef Instans { get; private set; }
     private Bank mästarbanken;
     
+    
     [Header("Musik & Ambians")]
     [SerializeField] private MusikScript musikljud;
     [SerializeField] private AmbiansLjud ambiansljud;
@@ -52,24 +53,6 @@ public class LjudChef : MonoBehaviour
     
     private void OnSceneChange(Scene förra, Scene nya)
     {
-        switch (förra.name)
-        {
-            case "START":
-                musikljud.StoppaMenyMusik();
-                ambiansljud.StoppaUnderVatten();
-                break;
-            case "Game":
-                musikljud.StoppaStridsMusik();
-                break;
-            case "SHOP":
-                musikljud.StoppaAffärsMusik();
-                ambiansljud.StoppaOvanförVatten();
-                break;
-            default:
-                Debug.Log("Ingen förra scen.");
-                break;
-        }
-
         switch (nya.name)
         {
             case "START":
@@ -80,7 +63,7 @@ public class LjudChef : MonoBehaviour
                 musikljud.SpelaStridsMusik();
                 ambiansljud.StartaUnderVatten();
                 break;
-            case "SHOP":
+            case "Shop":
                 musikljud.SpelaAffärsMusik();
                 ambiansljud.StartaOvanförVatten();
                 break;
