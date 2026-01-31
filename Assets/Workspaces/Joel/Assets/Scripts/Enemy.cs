@@ -10,6 +10,8 @@ namespace Workspaces.Joel.Assets.Scripts
         [SerializeField] private float movementSpeed = 0f;
         [SerializeField] private float attackOffset = 2f;
         [SerializeField] private LayerMask maskToHit;
+        private GameManager.EnemySpawnPhaseConfig currentPhaseConfig;
+        private EnemyHealth healthComponent;
         private GameObject player;
         
         [SerializeField] private float directionChangeTimer = 3f;
@@ -19,9 +21,14 @@ namespace Workspaces.Joel.Assets.Scripts
         [Header("Sound stuffs")] 
         [SerializeField] public FiskLjud fiskLjud;
 
-        private void Start()
+        private void Awake()
         {
             player = GameManager.Instance.Player;
+            currentPhaseConfig = GameManager.Instance.GetCurrentPhaseConfig();
+            healthComponent = GetComponent<EnemyHealth>();
+
+            movementSpeed *= currentPhaseConfig.enemySpeedMultiplier;
+            healthComponent.maxHealth *= currentPhaseConfig.enemyHealthMultiplier;
         }
         
         private void FixedUpdate()
@@ -75,6 +82,7 @@ namespace Workspaces.Joel.Assets.Scripts
                     SetNewRandomDirection();
                 }
 
+                // Fish "floaty" movement behaviour
                 transform.position = Vector3.MoveTowards(
                     transform.position, 
                     player.transform.position, 

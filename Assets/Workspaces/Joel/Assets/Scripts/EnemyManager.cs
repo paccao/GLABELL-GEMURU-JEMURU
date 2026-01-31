@@ -68,9 +68,7 @@ namespace Workspaces.Joel.Assets.Scripts
                         bounds.min.x - spawnOffsetFromEdge, 
                         Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
                         0
-                    ), 
-                    Vector3.right,
-                    currentPhaseConfig
+                    )
                 );
             }
     
@@ -82,9 +80,7 @@ namespace Workspaces.Joel.Assets.Scripts
                         bounds.max.x + spawnOffsetFromEdge, 
                         Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
                         0
-                    ), 
-                    Vector3.left,
-                    currentPhaseConfig
+                    )
                 );
             }
     
@@ -96,44 +92,17 @@ namespace Workspaces.Joel.Assets.Scripts
                         Random.Range(bounds.min.x, bounds.max.x), 
                         bounds.min.y - spawnOffsetFromEdge, 
                         0
-                    ), 
-                    Vector3.forward,
-                    currentPhaseConfig
+                    )
                 );
             }
         }
 
         private void SpawnEnemiesAlongEdge(
-            Vector3 spawnPosition, 
-            Vector3 movementDirection, 
-            GameManager.EnemySpawnPhaseConfig phaseConfig)
+            Vector3 spawnPosition)
         {
             // Choose a random enemy prefab
             GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-
-            // Instantiate the enemy
-            GameObject spawnedEnemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
-
-            // Modify enemy attributes based on current phase configuration
-            // ModifyEnemyAttributes(spawnedEnemy, phaseConfig);
+            Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
         }
-
-        // private void ModifyEnemyAttributes(GameObject enemy, GameManager.EnemySpawnPhaseConfig phaseConfig)
-        // {
-        //     // Modify movement speed
-        //     EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-        //     if (enemyMovement != null)
-        //     {
-        //         enemyMovement.movementSpeed *= phaseConfig.enemySpeedMultiplier;
-        //     }
-        //
-        //     // Modify health (assuming you have a health component)
-        //     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-        //     if (enemyHealth != null)
-        //     {
-        //         enemyHealth.maxHealth *= phaseConfig.enemyHealthMultiplier;
-        //         enemyHealth.currentHealth = enemyHealth.maxHealth;
-        //     }
-        // }
     }
 }

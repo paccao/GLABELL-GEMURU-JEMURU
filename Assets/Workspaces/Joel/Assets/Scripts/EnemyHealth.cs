@@ -4,7 +4,7 @@ using Workspaces.Joel.Assets.Scripts;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public float health;
-    [SerializeField] private float maxHealth;
+    public float maxHealth;
 
     private Enemy enemy;
 
@@ -13,7 +13,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     //private GameManager _managerScript;
     //private GameObject _gameManager;
     
-    // Start is called before the first frame update
     private void Start()
     {
         enemy = GetComponent<Enemy>();
@@ -21,12 +20,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         health = maxHealth;
         
         UpdateHealthTxt();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Damage(float damageAmount)

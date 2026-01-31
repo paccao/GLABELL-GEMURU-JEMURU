@@ -739,6 +739,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[0].spawnInterval
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[1].spawnInterval
       value: 6
       objectReference: {fileID: 0}
@@ -756,6 +760,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: OnVictory.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[0].maxEnemiesPerWave
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
@@ -797,6 +805,26 @@ PrefabInstance:
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[6].minEnemiesPerWave
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[0].enemySpeedMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[1].enemySpeedMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[0].enemyHealthMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[1].enemyHealthMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[2].enemyHealthMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: OnVictory.m_PersistentCalls.m_Calls.Array.data[0].m_CallState

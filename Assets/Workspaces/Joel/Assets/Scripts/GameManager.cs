@@ -35,16 +35,12 @@ namespace Workspaces.Joel.Assets.Scripts
 
             [Header("Difficulty Modifiers")]
             [Tooltip("Multiplier for enemy movement speed")]
-            [Range(1f, 3f)]
+            [Range(0.5f, 2f)]
             public float enemySpeedMultiplier = 1f;
 
             [Tooltip("Multiplier for enemy health")]
-            [Range(1f, 3f)]
+            [Range(0.5f, 3f)]
             public float enemyHealthMultiplier = 1f;
-
-            [Tooltip("Additional score multiplier for this phase")]
-            [Range(1f, 3f)]
-            public float scoreMultiplier = 1f;
         }
 
         [Header("Game Duration Settings")]
@@ -143,8 +139,7 @@ namespace Workspaces.Joel.Assets.Scripts
                 spawnInterval = Mathf.Max(5f - (phaseIndex * 0.5f), 1f),
                 gracePeriod = 0f,
                 enemySpeedMultiplier = 1f + (phaseIndex * 0.2f),
-                enemyHealthMultiplier = 1f + (phaseIndex * 0.2f),
-                scoreMultiplier = 1f + (phaseIndex * 0.2f)
+                enemyHealthMultiplier = 1f + (phaseIndex * 0.2f)
             };
         }
 
