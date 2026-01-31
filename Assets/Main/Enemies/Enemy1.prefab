@@ -151,6 +151,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 2
+  isMasked: 0
+  currencyManager: {fileID: 0}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3656335362192172185}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1075486693536609976}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1857861324368935478
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +472,16 @@ PrefabInstance:
 --- !u!4 &932635898647803709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 698347237596345258, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+  m_PrefabInstance: {fileID: 378412819175163031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1075486693536609976 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+  m_PrefabInstance: {fileID: 378412819175163031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3656335362192172185 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
   m_PrefabInstance: {fileID: 378412819175163031}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7079730920527195246
