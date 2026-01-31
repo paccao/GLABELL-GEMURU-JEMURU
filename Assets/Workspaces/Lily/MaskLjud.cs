@@ -1,17 +1,18 @@
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "MaskLjud", menuName = "Scriptable Objects/MaskLjud")]
 public class MaskLjud : ScriptableObject
 {
-    public EventReference stön;
+    public EventReference groan;
     public EventReference slagMiss;
     public EventReference slagTräff;
     public EventReference dö;
 
-    public void SpelaStönLjud()
+    public void PlayGroanSound()
     {
-        LjudChef.Instans.SpelaEnskottsLjud(stön);
+        LjudChef.Instans.SpelaEnskottsLjud(groan);
     }
 
     public void SpelaSlagMiss()

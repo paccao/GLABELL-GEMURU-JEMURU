@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5652121625823562955}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -270,7 +270,11 @@ MonoBehaviour:
   movementForce: 3
   dodgeForce: 50
   attackCooldown: 0.2
+  attackUpgraded: 0
+  rangeUpgraded: 0
+  sppedUpgraded: 0
   attackHitbox: {fileID: 8099213331073794655}
+  maskLjud: {fileID: 11400000, guid: 4d9008565fd111f47a4b520aaa54f335, type: 2}
 --- !u!114 &1649006789882410798
 MonoBehaviour:
   m_ObjectHideFlags: 0

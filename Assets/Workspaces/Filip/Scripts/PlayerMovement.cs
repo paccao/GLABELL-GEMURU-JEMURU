@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     
     public GameObject attackHitbox;
     
+    [Header("Ljud")]
+    [SerializeField] public MaskLjud maskLjud;
+    
     void Start()
     {
         animationController = GetComponentInChildren<AnimationController>();
