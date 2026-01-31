@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5a41793cef3a848afc28858bebf755, type: 3}
+  m_Name: "Aff\xE4rsljud"
+  m_EditorClassIdentifier: 
+  "uiSv\xE4va":
+    Guid:
+      Data1: -386692933
+      Data2: 1131252158
+      Data3: 243696567
+      Data4: 99328138
+    Path: event:/SFX/UI/SHOP/HOVER_ITEM
+  uiKlick:
+    Guid:
+      Data1: 1864047193
+      Data2: 1139732400
+      Data3: -1172458349
+      Data4: -756136839
+    Path: event:/SFX/UI/UI_CLICK
+  "k\xF6p":
+    Guid:
+      Data1: -99723138
+      Data2: 1248906692
+      Data3: 69396649
+      Data4: 53113388
+    Path: event:/SFX/UI/SHOP/BOUGHT_ITEM
+  "nekatK\xF6p":
+    Guid:
+      Data1: -1034178805
+      Data2: 1093785175
+      Data3: -1221418321
+      Data4: 1436904194
+    Path: event:/SFX/UI/SHOP/DENY_PURCHASE
+  "aff\xE4rPopup":
+    Guid:
+      Data1: -685641532
+      Data2: 1077706192
+      Data3: -1213245552
+      Data4: 1596132185
+    Path: event:/SFX/UI/SHOP/SHOP_APPEAR
+  "aff\xE4rSt\xE4ng":
+    Guid:
+      Data1: 346360731
+      Data2: 1331813609
+      Data3: 445773192
+      Data4: -407375693
+    Path: event:/SFX/UI/SHOP/SHOP_DISSAPEAR
