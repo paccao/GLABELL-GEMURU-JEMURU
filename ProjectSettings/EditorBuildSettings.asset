@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Main/START.unity
     guid: 67921a5e1d4f8884c95553f512a508ec
   - enabled: 1
-    path: Assets/Main/Game.unity
-    guid: 22b5d4326c69f054fa44b88ca44cd86b
-  - enabled: 1
     path: Assets/Main/Shop.unity
     guid: 18416407cadb18a47864357ca4e1fdfd
+  - enabled: 1
+    path: Assets/Main/Game.unity
+    guid: 22b5d4326c69f054fa44b88ca44cd86b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d75a994b64c85004e93917ff0fd2a645, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

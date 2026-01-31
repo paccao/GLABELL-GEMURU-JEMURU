@@ -5,6 +5,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public float health;
     public float maxHealth;
+    public bool isMasked;
+    
+    public CurrencyManager currencyManager;
 
     private Enemy enemy;
 
@@ -12,6 +15,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     
     //private GameManager _managerScript;
     //private GameObject _gameManager;
+
+    private void Awake()
+    {
+        currencyManager = GameObject.Find("CurrencyManager").GetComponent<CurrencyManager>();
+    }
     
     private void Start()
     {
@@ -38,6 +46,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        if (isMasked)
+            currencyManager.AddMoney(1);
         enemy.fiskLjud.SpelaDöLjud();
         //Note from programmer: inte okej...
         Destroy(gameObject);
