@@ -1128,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish5
       objectReference: {fileID: 0}
+    - target: {fileID: 7657806722500897273, guid: 4cb75c02a9422b04cba36195c861432e, type: 3}
+      propertyPath: m_Drag
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
