@@ -8,6 +8,7 @@ namespace Workspaces.Joel.Assets.Scripts
         [SerializeField] private float range = 0f;
         [SerializeField] private float rotateSpeed = 0f;
         [SerializeField] private float movementSpeed = 0f;
+        [SerializeField] private float attackOffset = 2f;
         [SerializeField] private LayerMask maskToHit;
         private GameObject player;
         
@@ -36,27 +37,30 @@ namespace Workspaces.Joel.Assets.Scripts
             if (Physics.Raycast(ray, out hitInfo, range, maskToHit))
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.green);
+                
+                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
                 // Smoothly rotate towards player
                 var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
                 
-                // Move towards player
-                transform.position = Vector3.MoveTowards(
-                    transform.position, 
-                    player.transform.position, 
-                    movementSpeed * Time.deltaTime
-                );
+                // Move towards player only if not at attack offset
+                if (distanceToPlayer > attackOffset)
+                {
+                    Vector3 directionToPlayerNormalized = (player.transform.position - transform.position).normalized;
+                    Vector3 targetPosition = player.transform.position - (directionToPlayerNormalized * attackOffset);
+            
+                    transform.position = Vector3.MoveTowards(
+                        transform.position, 
+                        targetPosition, 
+                        movementSpeed * Time.deltaTime
+                    );
+                }
             }
             // Enemy not in range of player
             else
             {
                 Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.red);
-
-                // Rotate towards origin (0,0,0)
-                // Vector3 originDirection = -transform.position.normalized;
-                // var targetRotation = Quaternion.LookRotation(originDirection);
-                // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
                 // Update direction change timer
                 directionChangeTimer += Time.deltaTime;
@@ -85,9 +89,6 @@ namespace Workspaces.Joel.Assets.Scripts
                 Random.Range(-1f, 1f),
                 0f
             ).normalized;
-            
-            // var targetRotation = Quaternion.LookRotation(currentRandomDirection);
-            // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
             // Reset the timer
             directionChangeTimer = 0f;

@@ -1,72 +1,71 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Serialization;
 
 namespace Workspaces.Joel.Assets.Scripts
 {
     public class EnemyManager : MonoBehaviour
     {
-        public Transform enemySpawnFolder;
-        
-        [Header("Spawn Settings")]
-        [SerializeField] private GameObject enemyPrefab;
-        [SerializeField] private GameObject enemySpawnBox;
-        [SerializeField] private float spawnOffsetFromSides = 1f;
-        [SerializeField] private float spawnOffsetFromTop = 2f;
+        public GameObject enemySpawnBox;
 
-        private GameManager.EnemySpawnPhaseConfig currentPhaseConfig;
+        public GameObject[] enemyPrefabs;
+
+        [Header("Spawn box offsets")] // Used to spawn enemies slightly outside
+        public float spawnOffsetFromEdge = 1f;
+        public float spawnOffsetFromTop = 1f;
+
         private float spawnTimer = 0f;
-        private Renderer backgroundRenderer;
-        
-        private void Start()
+
+        private void Update()
         {
-            if (enemySpawnBox == null)
+            // Only spawn if past the grace period
+            if (!GameManager.Instance.IsPastGracePeriod())
             {
-                Debug.LogError("Background object is not assigned!");
                 return;
             }
-            currentPhaseConfig = GameManager.Instance.GetCurrentPhaseConfig();
 
-            // Get the renderer to calculate bounds for enemy spawns
-            backgroundRenderer = enemySpawnBox.GetComponent<Renderer>();
-            
+            // Get the current spawn phase configuration
+            var currentPhaseConfig = GameManager.Instance.GetCurrentPhaseConfig();
+
+            // Update spawn timer
+            spawnTimer += Time.deltaTime;
+
+            // Check if it's time to spawn a new wave
+            if (spawnTimer >= currentPhaseConfig.spawnInterval)
+            {
+                SpawnEnemiesAtEdges(currentPhaseConfig);
+                spawnTimer = 0f;
+            }
+        }
+
+        private void SpawnEnemiesAtEdges(GameManager.EnemySpawnPhaseConfig currentPhaseConfig)
+        {
+            // Get the renderer to calculate bounds
+            Renderer backgroundRenderer = enemySpawnBox.GetComponent<Renderer>();
             if (backgroundRenderer == null)
             {
                 Debug.LogError("Background object must have a Renderer component!");
                 return;
             }
-        }
 
-        private void Update()
-        {
-            spawnTimer += Time.deltaTime;
-
-            if (spawnTimer >= currentPhaseConfig.spawnInterval)
-            {
-                SpawnEnemiesAtEdges();
-                spawnTimer = 0;
-            }
-        }
-        
-        private void SpawnEnemiesAtEdges()
-        {
             // Enemies spawn along the bounds of the Background object
             Bounds bounds = backgroundRenderer.bounds;
-            
+    
             // Determine the number of enemies to spawn based on the current phase configuration
-            var enemiesToSpawn = Random.Range(
+            int enemiesToSpawn = Random.Range(
                 currentPhaseConfig.minEnemiesPerWave, 
-                currentPhaseConfig.maxEnemiesPerWave + 1
+                currentPhaseConfig.maxEnemiesPerWave
             );
-        
+
             // Distribute enemies across different sides
-            var enemiesPerSide = Mathf.CeilToInt(enemiesToSpawn / 3f);
-        
+            int enemiesPerSide = Mathf.CeilToInt(enemiesToSpawn / 3f);
+
             // Spawn on Left Side
             for (int i = 0; i < enemiesPerSide; i++)
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.min.x - spawnOffsetFromSides, 
+                        bounds.min.x - spawnOffsetFromEdge, 
                         Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
                         0
                     ), 
@@ -74,13 +73,13 @@ namespace Workspaces.Joel.Assets.Scripts
                     currentPhaseConfig
                 );
             }
-            
+    
             // Spawn on Right Side
             for (int i = 0; i < enemiesPerSide; i++)
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.max.x + spawnOffsetFromSides, 
+                        bounds.max.x + spawnOffsetFromEdge, 
                         Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
                         0
                     ), 
@@ -88,14 +87,14 @@ namespace Workspaces.Joel.Assets.Scripts
                     currentPhaseConfig
                 );
             }
-            
+    
             // Spawn on Bottom Side
             for (int i = 0; i < enemiesPerSide; i++)
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
                         Random.Range(bounds.min.x, bounds.max.x), 
-                        bounds.min.y - spawnOffsetFromSides, 
+                        bounds.min.y - spawnOffsetFromEdge, 
                         0
                     ), 
                     Vector3.forward,
@@ -103,19 +102,22 @@ namespace Workspaces.Joel.Assets.Scripts
                 );
             }
         }
-        
+
         private void SpawnEnemiesAlongEdge(
             Vector3 spawnPosition, 
             Vector3 movementDirection, 
             GameManager.EnemySpawnPhaseConfig phaseConfig)
         {
+            // Choose a random enemy prefab
+            GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
             // Instantiate the enemy
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, enemySpawnFolder);
-        
-            // // Modify enemy attributes based on current phase configuration
+            GameObject spawnedEnemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
+
+            // Modify enemy attributes based on current phase configuration
             // ModifyEnemyAttributes(spawnedEnemy, phaseConfig);
         }
-        
+
         // private void ModifyEnemyAttributes(GameObject enemy, GameManager.EnemySpawnPhaseConfig phaseConfig)
         // {
         //     // Modify movement speed
@@ -131,13 +133,6 @@ namespace Workspaces.Joel.Assets.Scripts
         //     {
         //         enemyHealth.maxHealth *= phaseConfig.enemyHealthMultiplier;
         //         enemyHealth.currentHealth = enemyHealth.maxHealth;
-        //     }
-        //
-        //     // Optional: Add a score component modification
-        //     ScoreComponent scoreComponent = enemy.GetComponent<ScoreComponent>();
-        //     if (scoreComponent != null)
-        //     {
-        //         scoreComponent.scoreMultiplier = phaseConfig.scoreMultiplier;
         //     }
         // }
     }
