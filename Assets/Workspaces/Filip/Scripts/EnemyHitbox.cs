@@ -7,7 +7,7 @@ public class EnemyHitbox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null && other.CompareTag("PLayer"))
+        if (damageable != null && other.CompareTag("Player"))
         {
             Debug.Log("Player");
             damageable.Damage(dmgAmount);
