@@ -7,7 +7,6 @@ namespace Workspaces.Joel.Assets.Scripts
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
-        
         public GameObject Player { get; private set; }
 
         [Serializable]

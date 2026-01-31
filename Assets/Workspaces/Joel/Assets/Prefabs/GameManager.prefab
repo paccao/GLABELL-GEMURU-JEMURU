@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5929184506096827450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3619951335809993906}
+  - component: {fileID: 1510828633837581163}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3619951335809993906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929184506096827450}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1510828633837581163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929184506096827450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee24ab3d9241358d8362ac3b1d8d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameDuration: 180
+  phaseDuration: 10
+  spawnPhaseConfigs:
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 10
+    maxEnemiesPerWave: 20
+    spawnInterval: 3
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  gameTimer: 0

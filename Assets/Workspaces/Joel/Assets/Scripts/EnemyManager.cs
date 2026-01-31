@@ -9,9 +9,8 @@ namespace Workspaces.Joel.Assets.Scripts
         
         [Header("Spawn Settings")]
         [SerializeField] private GameObject enemyPrefab;
-        [SerializeField] private GameObject backgroundObject;
-        [SerializeField] private int enemiesPerSide = 3;
-        [SerializeField] private float spawnOffsetFromEdge = 1f;
+        [SerializeField] private GameObject enemySpawnBox;
+        [SerializeField] private float spawnOffsetFromSides = 1f;
         [SerializeField] private float spawnOffsetFromTop = 2f;
 
         private GameManager.EnemySpawnPhaseConfig currentPhaseConfig;
@@ -20,7 +19,7 @@ namespace Workspaces.Joel.Assets.Scripts
         
         private void Start()
         {
-            if (backgroundObject == null)
+            if (enemySpawnBox == null)
             {
                 Debug.LogError("Background object is not assigned!");
                 return;
@@ -28,7 +27,7 @@ namespace Workspaces.Joel.Assets.Scripts
             currentPhaseConfig = GameManager.Instance.GetCurrentPhaseConfig();
 
             // Get the renderer to calculate bounds for enemy spawns
-            backgroundRenderer = backgroundObject.GetComponent<Renderer>();
+            backgroundRenderer = enemySpawnBox.GetComponent<Renderer>();
             
             if (backgroundRenderer == null)
             {
@@ -40,7 +39,6 @@ namespace Workspaces.Joel.Assets.Scripts
         private void Update()
         {
             spawnTimer += Time.deltaTime;
-            Debug.Log(GameManager.Instance.gameTimer);
 
             if (spawnTimer >= currentPhaseConfig.spawnInterval)
             {
@@ -55,20 +53,20 @@ namespace Workspaces.Joel.Assets.Scripts
             Bounds bounds = backgroundRenderer.bounds;
             
             // Determine the number of enemies to spawn based on the current phase configuration
-            int enemiesToSpawn = Random.Range(
+            var enemiesToSpawn = Random.Range(
                 currentPhaseConfig.minEnemiesPerWave, 
                 currentPhaseConfig.maxEnemiesPerWave + 1
             );
         
             // Distribute enemies across different sides
-            int enemiesPerSide = Mathf.CeilToInt(enemiesToSpawn / 3f);
+            var enemiesPerSide = Mathf.CeilToInt(enemiesToSpawn / 3f);
         
             // Spawn on Left Side
             for (int i = 0; i < enemiesPerSide; i++)
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.min.x - spawnOffsetFromEdge, 
+                        bounds.min.x - spawnOffsetFromSides, 
                         Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
                         0
                     ), 
@@ -82,7 +80,7 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.max.x + spawnOffsetFromEdge, 
+                        bounds.max.x + spawnOffsetFromSides, 
                         Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
                         0
                     ), 
@@ -97,7 +95,7 @@ namespace Workspaces.Joel.Assets.Scripts
                 SpawnEnemiesAlongEdge(
                     new Vector3(
                         Random.Range(bounds.min.x, bounds.max.x), 
-                        bounds.min.y - spawnOffsetFromEdge, 
+                        bounds.min.y - spawnOffsetFromSides, 
                         0
                     ), 
                     Vector3.forward,
