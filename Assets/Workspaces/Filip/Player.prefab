@@ -274,6 +274,7 @@ MonoBehaviour:
   rangeUpgraded: 0
   sppedUpgraded: 0
   attackHitbox: {fileID: 8099213331073794655}
+  maskLjud: {fileID: 11400000, guid: 4d9008565fd111f47a4b520aaa54f335, type: 2}
 --- !u!114 &1649006789882410798
 MonoBehaviour:
   m_ObjectHideFlags: 0

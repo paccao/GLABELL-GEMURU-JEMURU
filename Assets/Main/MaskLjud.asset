@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea8d7e490b585f4e8a51b0606dd29b1, type: 3}
+  m_Name: MaskLjud
+  m_EditorClassIdentifier: 
+  groan:
+    Guid:
+      Data1: 742740628
+      Data2: 1158127305
+      Data3: -1890440785
+      Data4: 242808289
+    Path: event:/SFX/PLAYER/GROAN
+  slagMiss:
+    Guid:
+      Data1: 1877639307
+      Data2: 1176050777
+      Data3: 826532245
+      Data4: -264965004
+    Path: event:/SFX/PLAYER/PUNCH
+  "slagTr\xE4ff":
+    Guid:
+      Data1: 2076491944
+      Data2: 1208759537
+      Data3: 33055400
+      Data4: 215752205
+    Path: event:/SFX/ENEMIES/FISH_HIT
+  "d\xF6":
+    Guid:
+      Data1: -99711399
+      Data2: 1231961437
+      Data3: 490545575
+      Data4: 2011711629
+    Path: event:/SFX/ENEMIES/FISH_DIE

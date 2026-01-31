@@ -4,6 +4,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public float health;
     [SerializeField] private float maxHealth;
+    private PlayerMovement playerMovement;
 
     //public TMP_Text healthText;
     
@@ -14,7 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Start()
     {
         health = maxHealth;
-        
+        playerMovement = GetComponent<PlayerMovement>();
         UpdateHealthTxt();
     }
 
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         health -= damageAmount;
         Debug.Log(health);
+        playerMovement.maskLjud.PlayGroanSound();
         UpdateHealthTxt();
         if (health <= 0)
         {
@@ -37,7 +39,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Death()
     {
-        
+        playerMovement.maskLjud.SpelaDöLjud();
     }
 
     private void UpdateHealthTxt()
