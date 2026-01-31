@@ -753,6 +753,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ee24ab3d9241358d8362ac3b1d8d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameDuration: 180
+  phaseDuration: 10
+  spawnPhaseConfigs:
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 10
+    maxEnemiesPerWave: 20
+    spawnInterval: 3
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  - minEnemiesPerWave: 1
+    maxEnemiesPerWave: 3
+    spawnInterval: 5
+    enemySpeedMultiplier: 1
+    enemyHealthMultiplier: 1
+    scoreMultiplier: 1
+  gameTimer: 0
 --- !u!4 &2031695177
 Transform:
   m_ObjectHideFlags: 0
