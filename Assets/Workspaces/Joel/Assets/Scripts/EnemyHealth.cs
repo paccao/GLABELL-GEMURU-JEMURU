@@ -1,9 +1,12 @@
 using UnityEngine;
+using Workspaces.Joel.Assets.Scripts;
 
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public float health;
     [SerializeField] private float maxHealth;
+
+    private Enemy enemy;
 
     //public TMP_Text healthText;
     
@@ -13,6 +16,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     private void Start()
     {
+        enemy = GetComponent<Enemy>();
+        
         health = maxHealth;
         
         UpdateHealthTxt();
@@ -37,7 +42,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Death()
     {
-        
+        //enemy.fiskLjud.SpelaDöLjud();
+        //Note from programmer: inte okej...
+        Destroy(gameObject);
     }
 
     private void UpdateHealthTxt()

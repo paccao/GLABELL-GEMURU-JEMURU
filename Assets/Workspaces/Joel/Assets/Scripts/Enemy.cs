@@ -16,8 +16,8 @@ namespace Workspaces.Joel.Assets.Scripts
         private float directionChangeDuration;
         private Vector3 currentRandomDirection;
 
-        [Header("Sound stuffs")] 
-        [SerializeField] private FiskLjud fiskLjud;
+        //[Header("Sound stuffs")] 
+        //[SerializeField] public FiskLjud fiskLjud;
 
         private void Start()
         {
