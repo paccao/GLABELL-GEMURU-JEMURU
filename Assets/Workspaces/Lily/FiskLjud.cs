@@ -9,11 +9,10 @@ public class FiskLjud : ScriptableObject
     public void SpelaDöLjud()
     {
         RuntimeManager.PlayOneShot(die);
-        //LjudChef.Instans.SpelaEnskottsLjud(dö);
     }
 
     public void SpelaTräffLjud()
     {
-        LjudChef.Instans.SpelaEnskottsLjud(hit);
+        RuntimeManager.PlayOneShot(hit);
     }
 }

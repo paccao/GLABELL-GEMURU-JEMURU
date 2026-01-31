@@ -267,7 +267,7 @@ MonoBehaviour:
   rigidbody: {fileID: 5320500348268218643}
   movementForce: 3
   dodgeForce: 50
-  attackCooldown: 1
+  attackCooldown: 0.2
   attackHitbox: {fileID: 8099213331073794655}
 --- !u!114 &1649006789882410798
 MonoBehaviour:

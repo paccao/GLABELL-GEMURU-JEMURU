@@ -38,6 +38,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             Death();
         }
+        else
+        {
+            enemy.fiskLjud.SpelaTräffLjud();
+        }
     }
 
     private void Death()

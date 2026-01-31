@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149dc4b3a8bdff44386e59be26e4b830, type: 3}
   m_Name: FiskLjud
   m_EditorClassIdentifier: 
-  "d\xF6":
+  die:
     Guid:
       Data1: -99711399
       Data2: 1231961437
       Data3: 490545575
       Data4: 2011711629
     Path: event:/SFX/ENEMIES/FISH_DIE
-  "tr\xE4ff":
+  hit:
     Guid:
-      Data1: -99711399
-      Data2: 1231961437
-      Data3: 490545575
-      Data4: 2011711629
-    Path: event:/SFX/ENEMIES/FISH_DIE
+      Data1: 2076491944
+      Data2: 1208759537
+      Data3: 33055400
+      Data4: 215752205
+    Path: event:/SFX/ENEMIES/FISH_HIT
