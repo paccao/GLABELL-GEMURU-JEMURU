@@ -12,27 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea8d7e490b585f4e8a51b0606dd29b1, type: 3}
   m_Name: MaskLjud
   m_EditorClassIdentifier: 
-  groan:
+  damage:
     Guid:
       Data1: 742740628
       Data2: 1158127305
       Data3: -1890440785
       Data4: 242808289
-    Path: event:/SFX/PLAYER/GROAN
-  slagMiss:
+    Path: event:/SFX/PLAYER/DAMAGE
+  slag:
     Guid:
       Data1: 1877639307
       Data2: 1176050777
       Data3: 826532245
       Data4: -264965004
     Path: event:/SFX/PLAYER/PUNCH
-  "slagTr\xE4ff":
-    Guid:
-      Data1: 2076491944
-      Data2: 1208759537
-      Data3: 33055400
-      Data4: 215752205
-    Path: event:/SFX/ENEMIES/FISH_HIT
   "d\xF6":
     Guid:
       Data1: -99711399
@@ -40,3 +33,10 @@ MonoBehaviour:
       Data3: 490545575
       Data4: 2011711629
     Path: event:/SFX/ENEMIES/FISH_DIE
+  dash:
+    Guid:
+      Data1: 1730040419
+      Data2: 1323676659
+      Data3: -1304735613
+      Data4: 2019966574
+    Path: event:/SFX/PLAYER/DASH

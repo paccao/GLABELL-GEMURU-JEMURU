@@ -8,6 +8,12 @@ public class MaskLjud : ScriptableObject
     public EventReference damage;
     public EventReference slag;
     public EventReference dö;
+    public EventReference dash;
+
+    public void SpelaDashLjud()
+    {
+        LjudChef.Instans.SpelaEnskottsLjud(dash);
+    }
 
     public void PlayDamageSound()
     {
