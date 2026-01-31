@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float attackCooldown = 1f;
     private float attackBetween = 0.1F;
     
+    private AnimationController animationController;
     
     private bool isPaused = false;
     private bool isAttacking = false;
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-        //attackHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
+        animationController = GetComponentInChildren<AnimationController>();
     }
 
     // Update is called once per frame
@@ -66,17 +67,23 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("sup");
         isAttacking = true;
+        animationController.DoAnim(true);
+        attackHitbox.SetActive(true);
+        yield return new WaitForSeconds(attackBetween);
+        animationController.DoAnim(false);
+        attackHitbox.SetActive(false);
+        yield return new WaitForSeconds(attackBetween);
+        animationController.DoAnim(true);
+        attackHitbox.SetActive(true);
+        yield return new WaitForSeconds(attackBetween);
+        animationController.DoAnim(false);
+        attackHitbox.SetActive(false);
+        yield return new WaitForSeconds(attackBetween);
+        animationController.DoAnim(true);
         attackHitbox.SetActive(true);
         yield return new WaitForSeconds(attackBetween);
         attackHitbox.SetActive(false);
-        yield return new WaitForSeconds(attackBetween);
-        attackHitbox.SetActive(true);
-        yield return new WaitForSeconds(attackBetween);
-        attackHitbox.SetActive(false);
-        yield return new WaitForSeconds(attackBetween);
-        attackHitbox.SetActive(true);
-        yield return new WaitForSeconds(attackBetween);
-        attackHitbox.SetActive(false);
+        animationController.DoAnim(false);
         yield return new WaitForSeconds(attackCooldown);
         
         isAttacking = false;

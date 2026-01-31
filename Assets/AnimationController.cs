@@ -15,22 +15,10 @@ public class AnimationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void DoAnim(bool isPunching)
     {
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            punchAnimator.SetBool("Punch", true);
-            //punchLeft.SetBool("Punch", true);
-            //punchRight.SetBool("Punch", true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            punchAnimator.SetBool("Punch", false);
-            //punchLeft.SetBool("Punch", false);
-            //punchRight.SetBool("Punch", false);
-        }
-        
+        punchAnimator.SetBool("Punch", isPunching);
     }
+    
+    
 }
