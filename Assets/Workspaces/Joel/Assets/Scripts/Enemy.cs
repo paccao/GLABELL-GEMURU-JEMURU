@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Workspaces.Joel.Assets.Scripts
@@ -13,10 +14,13 @@ namespace Workspaces.Joel.Assets.Scripts
         private GameManager.EnemySpawnPhaseConfig currentPhaseConfig;
         private EnemyHealth healthComponent;
         private GameObject player;
-        
+
         [SerializeField] private float directionChangeTimer = 3f;
         private float directionChangeDuration;
         private Vector3 currentRandomDirection;
+        
+        private bool isAttacking = false;
+        public GameObject hitBox;
 
         [Header("Sound stuffs")] 
         [SerializeField] public FiskLjud fiskLjud;
@@ -66,7 +70,12 @@ namespace Workspaces.Joel.Assets.Scripts
                         movementSpeed * Time.deltaTime
                     );
                 }
+                else if(!isAttacking)
+                {
+                    DoAttack();
+                }
             }
+            
             // Enemy not in range of player
             else
             {
@@ -90,6 +99,21 @@ namespace Workspaces.Joel.Assets.Scripts
                 );
                 transform.position += currentRandomDirection * movementSpeed * Time.deltaTime;
             }
+        }
+        
+        void DoAttack()
+        {
+            if (isAttacking) return;
+            StartCoroutine(AttackCooldown());
+        }
+
+        IEnumerator AttackCooldown()
+        {
+            isAttacking = true;
+            hitBox.SetActive(true);
+            yield return new WaitForSeconds(1);
+            hitBox.SetActive(false);
+            isAttacking = false;
         }
         
         void SetNewRandomDirection()

@@ -25,7 +25,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Damage(float damageAmount)
     {
         health -= damageAmount;
-        Debug.Log(health);
         UpdateHealthTxt();
         if (health <= 0)
         {
