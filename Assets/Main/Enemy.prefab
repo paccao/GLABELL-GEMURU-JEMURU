@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 889198502702893549}
   - component: {fileID: 1715894621566190466}
   - component: {fileID: 1881821394146329881}
+  - component: {fileID: 4955558856557210488}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
     m_Bits: 8
   directionChangeTimer: 3
   fiskLjud: {fileID: 11400000, guid: 8266fc051dc75b34f97837e9c9f7e304, type: 2}
+--- !u!114 &4955558856557210488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796573033521888240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94febd466b40eb44b0fc801f0241fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  maxHealth: 3
 --- !u!1 &7439223721822112057
 GameObject:
   m_ObjectHideFlags: 0

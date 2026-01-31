@@ -21,8 +21,8 @@ MonoBehaviour:
     Path: event:/SFX/ENEMIES/FISH_DIE
   "tr\xE4ff":
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -99711399
+      Data2: 1231961437
+      Data3: 490545575
+      Data4: 2011711629
+    Path: event:/SFX/ENEMIES/FISH_DIE
