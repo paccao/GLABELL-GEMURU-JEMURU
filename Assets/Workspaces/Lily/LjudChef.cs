@@ -13,8 +13,9 @@ public class LjudChef : MonoBehaviour
     public static LjudChef Instans { get; private set; }
     private Bank mästarbanken;
     
-    [Header("Musik")]
+    [Header("Musik & Ambians")]
     [SerializeField] private MusikScript musikljud;
+    [SerializeField] private AmbiansLjud ambiansljud;
 
     private EventInstance musikEvent;
     
@@ -48,19 +49,21 @@ public class LjudChef : MonoBehaviour
             SceneManager.activeSceneChanged += OnSceneChange;
         }
     }
-
+    
     private void OnSceneChange(Scene förra, Scene nya)
     {
         switch (förra.name)
         {
             case "START":
                 musikljud.StoppaMenyMusik();
+                ambiansljud.StoppaUnderVatten();
                 break;
             case "GAME":
                 musikljud.StoppaStridsMusik();
                 break;
             case "SHOP":
                 musikljud.StoppaAffärsMusik();
+                ambiansljud.StoppaOvanförVatten();
                 break;
             default:
                 Debug.Log("Ingen förra scen.");
@@ -71,12 +74,15 @@ public class LjudChef : MonoBehaviour
         {
             case "START":
                 musikljud.SpelaMenyMusik();
+                ambiansljud.StartaUnderVatten();
                 break;
             case "GAME":
                 musikljud.SpelaStridsMusik();
+                ambiansljud.StartaUnderVatten();
                 break;
             case "SHOP":
                 musikljud.SpelaAffärsMusik();
+                ambiansljud.StartaOvanförVatten();
                 break;
             default:
                 Debug.Log("No new scene?");
@@ -87,14 +93,7 @@ public class LjudChef : MonoBehaviour
     public void StartaMusik()
     {
         musikljud.SpelaMenyMusik();
-    }
-
-    public void BytMusik(EventReference nyMusik)
-    {
-        musikEvent.stop(STOP_MODE.ALLOWFADEOUT);
-        musikEvent.release();
-        musikEvent = RuntimeManager.CreateInstance(nyMusik);
-        musikEvent.start();
+        ambiansljud.StartaUnderVatten();
     }
 
     public void SpelaEnskottsLjud(EventReference ljud)

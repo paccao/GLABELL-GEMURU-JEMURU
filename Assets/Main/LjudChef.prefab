@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musikljud: {fileID: 11400000, guid: 2e8d89fc984a3a042a7e2cbfcf947e1e, type: 2}
+  ambiansljud: {fileID: 11400000, guid: 1af0d51aef1bc3d4383e9fde0d6cabf5, type: 2}
   maskljud: {fileID: 0}
   uILjud: {fileID: 0}
   introLjud: {fileID: 0}
