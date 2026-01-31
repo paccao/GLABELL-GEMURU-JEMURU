@@ -16,12 +16,12 @@ public class MusikScript : ScriptableObject
 
     public void SpelaSegerMusik()
     {
-        segerinstans = LjudChef.Instans.SpelaLjud(seger);
+        LjudChef.Instans.SpelaEnskottsLjud(seger);
     }
 
     public void SpelaFörlustMusik()
     {
-        förlustinstans = LjudChef.Instans.SpelaLjud(förlust);
+        LjudChef.Instans.SpelaEnskottsLjud(förlust);
     }
 
     public void SpelaAffärsMusik()
