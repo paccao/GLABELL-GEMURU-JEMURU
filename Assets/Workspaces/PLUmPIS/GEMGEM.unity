@@ -378,10 +378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e0fc8c572335049ba6ff2f48e47677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnFolder: {fileID: 2017890383}
-  enemyPrefab: {fileID: 7965831744201731053, guid: 61fa54443275cc74d92e5968196b88d7, type: 3}
   enemySpawnBox: {fileID: 0}
-  spawnOffsetFromSides: 1
+  enemyPrefabs: []
+  spawnOffsetFromEdge: 1
   spawnOffsetFromTop: 1
 --- !u!4 &842406134
 Transform:
@@ -509,49 +508,62 @@ MonoBehaviour:
   gameDuration: 180
   phaseDuration: 10
   spawnPhaseConfigs:
-  - minEnemiesPerWave: 1
+  - phaseName: 
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
+    gracePeriod: 1
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  - minEnemiesPerWave: 10
+  - phaseName: 
+    minEnemiesPerWave: 10
     maxEnemiesPerWave: 20
+    gracePeriod: 1
     spawnInterval: 3
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  - minEnemiesPerWave: 1
+  - phaseName: 
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
+    gracePeriod: 1
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  - minEnemiesPerWave: 1
+  - phaseName: 
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
+    gracePeriod: 1
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  - minEnemiesPerWave: 1
+  - phaseName: 
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
+    gracePeriod: 1
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  - minEnemiesPerWave: 1
+  - phaseName: 
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
+    gracePeriod: 1
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  - minEnemiesPerWave: 1
+  - phaseName: 
+    minEnemiesPerWave: 1
     maxEnemiesPerWave: 3
+    gracePeriod: 1
     spawnInterval: 5
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
     scoreMultiplier: 1
-  gameTimer: 0
 --- !u!4 &1315590296
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,9 +1130,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 889288486256262517, guid: b42848cc5a080b4488fb064854b60162, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1740878412593899603, guid: b42848cc5a080b4488fb064854b60162, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937161850521502851, guid: b42848cc5a080b4488fb064854b60162, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526674176662928675, guid: b42848cc5a080b4488fb064854b60162, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396531781785286462, guid: b42848cc5a080b4488fb064854b60162, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8623548689998993389, guid: b42848cc5a080b4488fb064854b60162, type: 3}
       propertyPath: m_Pivot.x
@@ -1200,6 +1228,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623548689998993389, guid: b42848cc5a080b4488fb064854b60162, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026635841753607068, guid: b42848cc5a080b4488fb064854b60162, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133672860403533013, guid: b42848cc5a080b4488fb064854b60162, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
