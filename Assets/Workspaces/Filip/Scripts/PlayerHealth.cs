@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         health -= damageAmount;
         Debug.Log(health);
-        playerMovement.maskLjud.PlayGroanSound();
+        playerMovement.maskLjud.PlayDamageSound();
         UpdateHealthTxt();
         if (health <= 0)
         {

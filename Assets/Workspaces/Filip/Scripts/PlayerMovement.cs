@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         //NOT an attack, makes the player dodge based on left stick position
         
         Debug.Log("Attacked");
-        
+        maskLjud.SpelaSlag();
         rigidbody.AddRelativeForce(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * dodgeForce, ForceMode.Impulse);
     }
 

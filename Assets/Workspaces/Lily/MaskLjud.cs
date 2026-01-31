@@ -5,24 +5,18 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "MaskLjud", menuName = "Scriptable Objects/MaskLjud")]
 public class MaskLjud : ScriptableObject
 {
-    public EventReference groan;
-    public EventReference slagMiss;
-    public EventReference slagTräff;
+    public EventReference damage;
+    public EventReference slag;
     public EventReference dö;
 
-    public void PlayGroanSound()
+    public void PlayDamageSound()
     {
-        LjudChef.Instans.SpelaEnskottsLjud(groan);
+        LjudChef.Instans.SpelaEnskottsLjud(damage);
     }
 
-    public void SpelaSlagMiss()
+    public void SpelaSlag()
     {
-        LjudChef.Instans.SpelaEnskottsLjud(slagMiss);
-    }
-
-    public void SpelaSlagTräff()
-    {
-        LjudChef.Instans.SpelaEnskottsLjud(slagTräff);
+        LjudChef.Instans.SpelaEnskottsLjud(slag);
     }
 
     public void SpelaDöLjud()
