@@ -613,7 +613,7 @@ MonoBehaviour:
   enemySpawnFolder: {fileID: 429190129}
   enemyPrefab: {fileID: 7965831744201731053, guid: 61fa54443275cc74d92e5968196b88d7, type: 3}
   backgroundObject: {fileID: 956297323}
-  enemiesPerSide: 4
+  enemiesPerSide: 5
   spawnOffsetFromEdge: 1
   spawnOffsetFromTop: 1
 --- !u!1 &1423031978
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 1423031981}
   - component: {fileID: 1423031980}
   - component: {fileID: 1423031979}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

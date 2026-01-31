@@ -235,6 +235,7 @@ MonoBehaviour:
   range: 10
   rotateSpeed: 6
   movementSpeed: 3
-  mask:
+  maskToHit:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8
+  directionChangeTimer: 3

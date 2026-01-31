@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Workspaces.Joel.Assets.Scripts
 {
@@ -7,10 +8,12 @@ namespace Workspaces.Joel.Assets.Scripts
         [SerializeField] private float range = 0f;
         [SerializeField] private float rotateSpeed = 0f;
         [SerializeField] private float movementSpeed = 0f;
-        [SerializeField] private LayerMask mask;
-        [SerializeField] private float idleDirectionChangeInterval = 3f;
+        [SerializeField] private LayerMask maskToHit;
         private GameObject player;
         
+        [SerializeField] private float directionChangeTimer = 3f;
+        private float directionChangeDuration;
+        private Vector3 currentRandomDirection;
 
         private void Start()
         {
@@ -30,7 +33,7 @@ namespace Workspaces.Joel.Assets.Scripts
             RaycastHit hitInfo;
 
             // Enemy in range of player
-            if (Physics.Raycast(ray, out hitInfo, range, mask))
+            if (Physics.Raycast(ray, out hitInfo, range, maskToHit))
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.green);
 
@@ -51,20 +54,46 @@ namespace Workspaces.Joel.Assets.Scripts
                 Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.red);
 
                 // Rotate towards origin (0,0,0)
-                Vector3 originDirection = -transform.position.normalized;
-                var targetRotation = Quaternion.LookRotation(originDirection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                // Vector3 originDirection = -transform.position.normalized;
+                // var targetRotation = Quaternion.LookRotation(originDirection);
+                // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
-                // Generate random direction in X and Y plane
-                Vector3 randomDirection = new Vector3(
-                    Random.Range(-1f, 1f),
-                    Random.Range(-1f, 1f),
-                    0f
-                ).normalized;
+                // Update direction change timer
+                directionChangeTimer += Time.deltaTime;
 
-                // Move in this random direction
-                transform.position += randomDirection * movementSpeed * Time.deltaTime;
+                // Check if it's time to change direction
+                if (directionChangeTimer >= directionChangeDuration)
+                {
+                    // Reset timer and set a new random direction
+                    SetNewRandomDirection();
+                }
+
+                transform.position = Vector3.MoveTowards(
+                    transform.position, 
+                    player.transform.position, 
+                    movementSpeed * Time.deltaTime
+                );
+                transform.position += currentRandomDirection * movementSpeed * Time.deltaTime;
             }
+        }
+        
+        void SetNewRandomDirection()
+        {
+            // Generate random direction in X and Y plane
+            currentRandomDirection = new Vector3(
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 1f),
+                0f
+            ).normalized;
+            
+            // var targetRotation = Quaternion.LookRotation(currentRandomDirection);
+            // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+
+            // Reset the timer
+            directionChangeTimer = 0f;
+
+            // Set a new random duration between 2.5 and 3.5 seconds
+            directionChangeDuration = Random.Range(2.5f, 3.5f);
         }
     }
 }
