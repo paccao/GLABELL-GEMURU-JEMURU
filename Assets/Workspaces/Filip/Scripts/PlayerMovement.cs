@@ -1,18 +1,24 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rigidbody; //TODO: Gör automagiskt i start
     public float movementForce = 1;
     public float dodgeForce = 1;
+    public float attackCooldown = 1f;
+    private float attackBetween = 0.1F;
+    
+    
     private bool isPaused = false;
+    private bool isAttacking = false;
     
     public GameObject attackHitbox;
     
     void Start()
     {
-        attackHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
+        //attackHitbox = GameObject.FindGameObjectWithTag("PlayerHitbox");
     }
 
     // Update is called once per frame
@@ -52,8 +58,28 @@ public class PlayerMovement : MonoBehaviour
     void OnJump()
     {
         //NOT a jump, attack... blame unity...
+        if (isAttacking) return;
+        StartCoroutine(AttackCooldown());
+    }
+    
+    IEnumerator AttackCooldown()
+    {
+        Debug.Log("sup");
+        isAttacking = true;
+        attackHitbox.SetActive(true);
+        yield return new WaitForSeconds(attackBetween);
+        attackHitbox.SetActive(false);
+        yield return new WaitForSeconds(attackBetween);
+        attackHitbox.SetActive(true);
+        yield return new WaitForSeconds(attackBetween);
+        attackHitbox.SetActive(false);
+        yield return new WaitForSeconds(attackBetween);
+        attackHitbox.SetActive(true);
+        yield return new WaitForSeconds(attackBetween);
+        attackHitbox.SetActive(false);
+        yield return new WaitForSeconds(attackCooldown);
         
-        //attackHitbox.active = true;
+        isAttacking = false;
     }
     
     void OnPause()
