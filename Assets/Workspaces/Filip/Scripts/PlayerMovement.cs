@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,36 +11,42 @@ public class PlayerMovement : MonoBehaviour
     public float attackCooldown = 1f;
     public float scaleModifier = 1;
     public float dmgAmount = 1;
-    
+
     private float attackBetween = 0.1F;
     private AnimationController animationController;
     private bool isAttacking = false;
-    
+    public InGameMenu uiObject;
+
     public CurrencyManager currencyManager;
-    
+
     public GameObject attackHitbox;
     private HitboxDmg hitboxDmg;
-    
-    [Header("Ljud")]
-    [SerializeField] public MaskLjud maskLjud;
+
+    public UnityEvent OnPaused, OnUnpause;
+
+    [Header("Ljud")] [SerializeField] public MaskLjud maskLjud;
+
+    private bool isPaused;
 
     void Awake()
     {
         currencyManager = CurrencyManager.Instance;
     }
-    
+
     void Start()
     {
         animationController = GetComponentInChildren<AnimationController>();
 
-        if(currencyManager.attackUpgraded)
+        if (currencyManager.attackUpgraded)
             dmgAmount += 3;
 
         if (currencyManager.rangeUpgraded)
             attackHitbox.transform.localScale += new Vector3(scaleModifier, scaleModifier, scaleModifier);
-        
-        if (currencyManager.sppedUpgraded) 
+
+        if (currencyManager.sppedUpgraded)
             attackCooldown -= 0.8f;
+
+        uiObject = GameObject.FindFirstObjectByType<InGameMenu>();
     }
 
     // Update is called once per frame
@@ -51,12 +58,12 @@ public class PlayerMovement : MonoBehaviour
     void DoMovement()
     {
         //Pushes the player
-        
+
         float inputX = Input.GetAxis("Horizontal");
 
         if (inputX == 0)
             return;
-        
+
         if (inputX == 1)
         {
             rigidbody.AddForce(transform.right * movementForce);
@@ -66,14 +73,15 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.AddForce(-transform.right * movementForce);
         }
     }
-    
+
     void OnAttack()
     {
         //NOT an attack, makes the player dodge based on left stick position
-        
+
         Debug.Log("Attacked");
         maskLjud.SpelaSlag();
-        rigidbody.AddRelativeForce(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * dodgeForce, ForceMode.Impulse);
+        rigidbody.AddRelativeForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * dodgeForce,
+            ForceMode.Impulse);
     }
 
     void OnJump()
@@ -82,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if (isAttacking) return;
         StartCoroutine(AttackCooldown());
     }
-    
+
     IEnumerator AttackCooldown()
     {
         Debug.Log("sup");
@@ -105,7 +113,27 @@ public class PlayerMovement : MonoBehaviour
         attackHitbox.SetActive(false);
         animationController.DoAnim(false);
         yield return new WaitForSeconds(attackCooldown);
-        
+
         isAttacking = false;
+    }
+
+    public void OnPause()
+    {
+        if (!isPaused)
+        {
+            Debug.Log("Pause");
+            OnPaused.Invoke();
+            Time.timeScale = 0;
+            isPaused = true;
+            LjudChef.Instans.PausaMusiken(true);
+        }
+        else if (isPaused)
+        {
+            Debug.Log("Resume");
+            Time.timeScale = 1;
+            OnUnpause.Invoke();
+            isPaused = false;
+            LjudChef.Instans.PausaMusiken(false);
+        }
     }
 }
