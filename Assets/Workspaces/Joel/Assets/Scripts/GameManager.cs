@@ -68,7 +68,7 @@ namespace Workspaces.Joel.Assets.Scripts
         // Runtime variables
         public int CurrentPhase { get; private set; } = 0;
 
-        public float gameTimer { get; private set; } = 0f;
+        public float gameTimer = 0f;
         private float currentPhaseStartTime = 0f;
 
         private void Awake()
@@ -94,8 +94,12 @@ namespace Workspaces.Joel.Assets.Scripts
         private void Update()
         {
             // Track game time and update current phase
-            gameTimer += Time.deltaTime;
-            
+            if (SceneManager.GetActiveScene().name != "Shop")
+            {
+                gameTimer += Time.deltaTime;
+            }
+
+            Debug.Log(gameTimer);
             // Calculate the current phase
             int newPhase = Mathf.FloorToInt(gameTimer / phaseDuration);
             
@@ -112,8 +116,6 @@ namespace Workspaces.Joel.Assets.Scripts
                 // Ensure we don't go beyond the last phase
                 CurrentPhase = Mathf.Min(newPhase, spawnPhaseConfigs.Count - 1);
                 currentPhaseStartTime = gameTimer;
-                
-                // Debug.Log($"Entered {spawnPhaseConfigs[CurrentPhase].phaseName}");
             }
         }
         
@@ -132,6 +134,7 @@ namespace Workspaces.Joel.Assets.Scripts
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             UpdatePlayerReference();
+            gameTimer = 0f;
         }
 
         public void UpdatePlayerReference()
