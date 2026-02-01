@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +8,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public float health;
     [SerializeField] private float maxHealth;
     private PlayerMovement playerMovement;
+    private bool canDamage = true;
     
     public UnityEvent OnDeath;
 
@@ -30,7 +33,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void Damage(float damageAmount)
     {
-        health -= damageAmount;
+        if (!canDamage)
+            return;
+        health -= damageAmount; 
+        StartCoroutine(DmgDelay());
         Debug.Log(health);
         playerMovement.maskLjud.PlayDamageSound();
         UpdateHealthTxt();
@@ -39,6 +45,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             Death();
         }
     }
+
+    private IEnumerator DmgDelay()
+    {
+        canDamage = false;
+        yield return new WaitForSeconds(1f);
+        canDamage = true;
+    }
+    
 
     private void Death()
     {
