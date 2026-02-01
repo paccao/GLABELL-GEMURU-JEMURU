@@ -43,6 +43,9 @@ public class Shop : MonoBehaviour
         }
         
         CurrencyManager.Instance.currentCurrency -= speedPrice;
+        // Update ui element
         speedBought = true;
+        
+        // Implement player upgrades
     }
 }

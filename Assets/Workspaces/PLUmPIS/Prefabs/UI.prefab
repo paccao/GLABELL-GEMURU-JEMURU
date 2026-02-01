@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 3019791598518161187}
   - component: {fileID: 4070106050479765611}
   m_Layer: 5
-  m_Name: DMG-upgrade (1)
+  m_Name: RANGE-upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 8152475925912409740}
   - component: {fileID: 3402755686197350145}
   m_Layer: 5
-  m_Name: DMG-upgrade (2)
+  m_Name: SPEED-upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
