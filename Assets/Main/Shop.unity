@@ -927,9 +927,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyManager: {fileID: 0}
-  damagePrice: 30
-  rangePrice: 50
-  speedPrice: 20
+  damagePrice: 20
+  rangePrice: 30
+  speedPrice: 40
   ljud: {fileID: 11400000, guid: 0058ca415c9251c4e8c5f72dbb64421f, type: 2}
 --- !u!4 &560773996
 Transform:

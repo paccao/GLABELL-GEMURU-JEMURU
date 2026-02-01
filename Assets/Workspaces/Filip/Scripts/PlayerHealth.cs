@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float maxHealth;
     private PlayerMovement playerMovement;
     private bool canDamage = true;
+    
+    public TMP_Text healthText;
     
     public UnityEvent OnDeath;
 
@@ -21,6 +24,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Start()
     {
         health = maxHealth;
+        healthText.text = health.ToString();
         playerMovement = GetComponent<PlayerMovement>();
         UpdateHealthTxt();
     }
@@ -36,6 +40,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (!canDamage)
             return;
         health -= damageAmount; 
+        healthText.text = health.ToString();
         StartCoroutine(DmgDelay());
         Debug.Log(health);
         playerMovement.maskLjud.PlayDamageSound();
