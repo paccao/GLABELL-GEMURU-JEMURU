@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ using UnityEngine;
 public class AffärsLjud : ScriptableObject
 {
     public EventReference uiSväva, uiKlick, köp, nekatKöp, affärPopup, affärStäng;
-
+    public EventInstance uiSvävaInstans;
     public void SpelaUiSväva()
     {
         LjudChef.Instans.SpelaEnskottsLjud(uiSväva);

@@ -7,7 +7,7 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class UpgradeHoverSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public UILjud UIL;
+    public AffärsLjud UIL;
     public void OnPointerEnter(PointerEventData eventData)
     {
         UIL.uiSvävaInstans = RuntimeManager.CreateInstance(UIL.uiSväva);
