@@ -8,11 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float movementForce = 1;
     public float dodgeForce = 1;
     public float attackCooldown = 1f;
-
-    public bool attackUpgraded = false;
-    public bool rangeUpgraded = false;
-    public bool sppedUpgraded = false;
-    
+    public float scaleModifier = 1;
+    public float dmgAmount = 1;
     
     private float attackBetween = 0.1F;
     private AnimationController animationController;
@@ -20,14 +17,31 @@ public class PlayerMovement : MonoBehaviour
     private bool isPaused = false;
     private bool isAttacking = false;
     
+    public CurrencyManager currencyManager;
+    
     public GameObject attackHitbox;
+    private HitboxDmg hitboxDmg;
     
     [Header("Ljud")]
     [SerializeField] public MaskLjud maskLjud;
+
+    void Awake()
+    {
+        currencyManager = CurrencyManager.Instance;
+    }
     
     void Start()
     {
         animationController = GetComponentInChildren<AnimationController>();
+
+        if(currencyManager.attackUpgraded)
+            dmgAmount += 3;
+
+        if (currencyManager.rangeUpgraded)
+            attackHitbox.transform.localScale += new Vector3(scaleModifier, scaleModifier, scaleModifier);
+        
+        if (currencyManager.sppedUpgraded) 
+            attackCooldown -= 0.8f;
     }
 
     // Update is called once per frame

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    public CurrencyManager currencyManager;
+    
     private bool damageBought = false;
     private bool rangeBought = false;
     private bool speedBought = false;
@@ -10,6 +12,11 @@ public class Shop : MonoBehaviour
     public int speedPrice = 20;
     public AffärsLjud ljud;
 
+    void Awake()
+    {
+        currencyManager = CurrencyManager.Instance;
+    }
+    
     public void BuyDamage()
     {
         if (!(CurrencyManager.Instance.currentCurrency >= damagePrice) || damageBought)
@@ -18,8 +25,8 @@ public class Shop : MonoBehaviour
             return;
         }
         
-        CurrencyManager.Instance.currentCurrency -= damagePrice;
-        damageBought = true;
+        CurrencyManager.Instance.RemoveMoney(damagePrice);
+        currencyManager.attackUpgraded = true;
     }
     
     public void BuyRange()
@@ -30,8 +37,9 @@ public class Shop : MonoBehaviour
             return;
         }
         
-        CurrencyManager.Instance.currentCurrency -= rangePrice;
+        CurrencyManager.Instance.RemoveMoney(rangePrice);
         rangeBought = true;
+        currencyManager.rangeUpgraded = true;
     }
     
     public void BuySpeed()
@@ -42,10 +50,8 @@ public class Shop : MonoBehaviour
             return;
         }
         
-        CurrencyManager.Instance.currentCurrency -= speedPrice;
-        // Update ui element
-        speedBought = true;
+        CurrencyManager.Instance.RemoveMoney(speedPrice);
         
-        // Implement player upgrades
+        currencyManager.sppedUpgraded = true;
     }
 }

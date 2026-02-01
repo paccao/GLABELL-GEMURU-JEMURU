@@ -269,7 +269,7 @@ MonoBehaviour:
   rigidbody: {fileID: 5320500348268218643}
   movementForce: 3
   dodgeForce: 50
-  attackCooldown: 0.2
+  attackCooldown: 1
   attackUpgraded: 0
   rangeUpgraded: 0
   sppedUpgraded: 0
@@ -289,6 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 10
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8938399884281696462
 MonoBehaviour:
   m_ObjectHideFlags: 0

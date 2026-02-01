@@ -12,6 +12,10 @@ public class CurrencyManager : MonoBehaviour
 
     public int currentScore = 0;
     public TMP_Text hajScore;
+    
+    public bool attackUpgraded = false;
+    public bool rangeUpgraded = false;
+    public bool sppedUpgraded = false;
 
     public void Awake()
     {
@@ -34,6 +38,7 @@ public class CurrencyManager : MonoBehaviour
         {
             currentCurrency = minimumCurrency;
         }
+        currentCurrencyText.text = currentCurrency.ToString();
     }
 
     public void AddMoney(int amount)

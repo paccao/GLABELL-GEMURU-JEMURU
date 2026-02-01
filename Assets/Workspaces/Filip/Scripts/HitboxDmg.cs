@@ -5,7 +5,12 @@ using System.Collections.Generic;
 
 public class HitboxDmg : MonoBehaviour
 {
-    public float dmgAmount;
+    public PlayerMovement playerMovement;
+
+    void Awake()
+    {
+        playerMovement = GetComponentInParent<PlayerMovement>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +18,7 @@ public class HitboxDmg : MonoBehaviour
         if (damageable != null && other.CompareTag("Enemy"))
         {
             Debug.Log("Fisk in");
-            damageable.Damage(dmgAmount);
+            damageable.Damage(playerMovement.dmgAmount);
         }
     }
 }
