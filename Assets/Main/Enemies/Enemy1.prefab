@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   rotateSpeed: 6
-  movementSpeed: 3
+  movementSpeed: 1.5
   attackOffset: 2
   maskToHit:
     serializedVersion: 2

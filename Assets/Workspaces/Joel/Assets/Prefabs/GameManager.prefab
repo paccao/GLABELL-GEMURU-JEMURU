@@ -50,42 +50,42 @@ MonoBehaviour:
   - phaseName: Phase 1
     minEnemiesPerWave: 1
     maxEnemiesPerWave: 1
-    gracePeriod: 1
-    spawnInterval: 1.99
+    gracePeriod: 0
+    spawnInterval: 8
     enemySpeedMultiplier: 1
     enemyHealthMultiplier: 1
   - phaseName: Phase 2
-    minEnemiesPerWave: 5
-    maxEnemiesPerWave: 11
-    gracePeriod: 1
-    spawnInterval: 6
+    minEnemiesPerWave: 1
+    maxEnemiesPerWave: 2
+    gracePeriod: 0
+    spawnInterval: 8
     enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1.5
+    enemyHealthMultiplier: 1.2
   - phaseName: Phase 3
-    minEnemiesPerWave: 15
-    maxEnemiesPerWave: 15
+    minEnemiesPerWave: 3
+    maxEnemiesPerWave: 4
     gracePeriod: 3
-    spawnInterval: 5
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 3
+    spawnInterval: 10
+    enemySpeedMultiplier: 0.9
+    enemyHealthMultiplier: 1.2
   - phaseName: Phase 4
-    minEnemiesPerWave: 1
-    maxEnemiesPerWave: 1
+    minEnemiesPerWave: 3
+    maxEnemiesPerWave: 5
     gracePeriod: 1
-    spawnInterval: 0.9
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-  - phaseName: Phase 5
-    minEnemiesPerWave: 12
-    maxEnemiesPerWave: 15
-    gracePeriod: 5
     spawnInterval: 5
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
-  - phaseName: Phase 6
-    minEnemiesPerWave: 1
-    maxEnemiesPerWave: 3
+    enemySpeedMultiplier: 1.8
+    enemyHealthMultiplier: 2.5
+  - phaseName: Phase 5
+    minEnemiesPerWave: 5
+    maxEnemiesPerWave: 7
     gracePeriod: 1
-    spawnInterval: 1
-    enemySpeedMultiplier: 1
-    enemyHealthMultiplier: 1
+    spawnInterval: 5
+    enemySpeedMultiplier: 2
+    enemyHealthMultiplier: 2.6
+  - phaseName: Phase 6
+    minEnemiesPerWave: 17
+    maxEnemiesPerWave: 25
+    gracePeriod: 4
+    spawnInterval: 3
+    enemySpeedMultiplier: 2
+    enemyHealthMultiplier: 3

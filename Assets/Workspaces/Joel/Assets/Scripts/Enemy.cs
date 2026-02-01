@@ -33,8 +33,6 @@ namespace Workspaces.Joel.Assets.Scripts
 
             movementSpeed *= currentPhaseConfig.enemySpeedMultiplier;
             healthComponent.maxHealth *= currentPhaseConfig.enemyHealthMultiplier;
-            Debug.Log("Enemy: Maxhealth after multiplyer: {healthComponent.maxHealth} ");
-            Debug.Log("Enemy: movementSpeed after multiplyer: {maxHealth} ");
         }
         
         private void FixedUpdate()
