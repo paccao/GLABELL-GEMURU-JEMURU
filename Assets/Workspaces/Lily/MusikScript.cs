@@ -16,7 +16,7 @@ public class MusikScript : ScriptableObject
 
     public void SpelaSegerMusik()
     {
-        LjudChef.Instans.SpelaEnskottsLjud(seger);
+        segerinstans = LjudChef.Instans.SpelaLjud(seger);
     }
 
     public void SpelaFörlustMusik()

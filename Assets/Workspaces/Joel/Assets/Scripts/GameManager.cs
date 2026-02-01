@@ -10,51 +10,39 @@ namespace Workspaces.Joel.Assets.Scripts
     {
         public static GameManager Instance { get; private set; }
         public GameObject Player { get; private set; }
-        
+
         [Serializable]
         public class EnemySpawnPhaseConfig
         {
-            [Header("Spawn Configuration")]
-            [Tooltip("Unique identifier for this phase")]
+            [Header("Spawn Configuration")] [Tooltip("Unique identifier for this phase")]
             public string phaseName;
 
-            [Tooltip("Minimum number of enemies to spawn in this phase")]
-            [Range(1, 50)]
+            [Tooltip("Minimum number of enemies to spawn in this phase")] [Range(1, 50)]
             public int minEnemiesPerWave = 1;
 
-            [Tooltip("Maximum number of enemies to spawn in this phase")]
-            [Range(1, 50)]
+            [Tooltip("Maximum number of enemies to spawn in this phase")] [Range(1, 50)]
             public int maxEnemiesPerWave = 3;
 
-            [Tooltip("Grace period at the start of this phase")]
-            [Range(0f, 30f)]
+            [Tooltip("Grace period at the start of this phase")] [Range(0f, 30f)]
             public float gracePeriod = 1f;
 
-            [Tooltip("Time between enemy wave spawns")]
-            [Range(0.5f, 15f)]
+            [Tooltip("Time between enemy wave spawns")] [Range(0.5f, 15f)]
             public float spawnInterval = 5f;
 
-            [Header("Difficulty Modifiers")]
-            [Tooltip("Multiplier for enemy movement speed")]
-            [Range(0.5f, 2f)]
+            [Header("Difficulty Modifiers")] [Tooltip("Multiplier for enemy movement speed")] [Range(0.5f, 2f)]
             public float enemySpeedMultiplier = 1f;
 
-            [Tooltip("Multiplier for enemy health")]
-            [Range(0.5f, 3f)]
+            [Tooltip("Multiplier for enemy health")] [Range(0.5f, 3f)]
             public float enemyHealthMultiplier = 1f;
         }
 
-        [Header("Game Duration Settings")]
-        [Tooltip("Total game duration in seconds")]
-        [Range(60f, 600f)]
+        [Header("Game Duration Settings")] [Tooltip("Total game duration in seconds")] [Range(60f, 600f)]
         public float gameDuration = 180f;
 
-        [Tooltip("Duration of each phase in seconds")]
-        [Range(10f, 120f)]
+        [Tooltip("Duration of each phase in seconds")] [Range(10f, 120f)]
         public float phaseDuration = 30f;
 
-        [Header("Enemy Spawn Phases")]
-        [Tooltip("Configure spawn characteristics for each game phase")]
+        [Header("Enemy Spawn Phases")] [Tooltip("Configure spawn characteristics for each game phase")]
         public List<EnemySpawnPhaseConfig> spawnPhaseConfigs = new List<EnemySpawnPhaseConfig>
         {
             new EnemySpawnPhaseConfig { phaseName = "Phase 0" },
@@ -83,7 +71,7 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 Destroy(gameObject);
             }
-            
+
             // Save a reference to the player which different scenes use. This will become outdated, call UpdatePlayerReference if this is null
             Player = GameObject.FindGameObjectWithTag("Player");
 
@@ -91,23 +79,20 @@ namespace Workspaces.Joel.Assets.Scripts
             EnsureMinimumPhaseConfigs();
         }
 
-        private void Update()
+    private void Update()
         {
             // Track game time and update current phase
-            if (SceneManager.GetActiveScene().name != "Shop")
+            if (SceneManager.GetActiveScene().name == "Game")
             {
                 gameTimer += Time.deltaTime;
             }
 
-            //Debug.Log(gameTimer);
             // Calculate the current phase
             int newPhase = Mathf.FloorToInt(gameTimer / phaseDuration);
             
-            if (gameTimer >= gameDuration)
+            if (gameTimer >= gameDuration + 3f)
             {
-                // Load Victory Scene
-                Debug.Log("Victory!");
-                return;
+                SceneManager.LoadScene("Victory");
             }
 
             // Check if we've moved to a new phase

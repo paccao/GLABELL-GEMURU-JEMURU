@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main/Game.unity
     guid: 22b5d4326c69f054fa44b88ca44cd86b
+  - enabled: 1
+    path: Assets/Main/Victory.unity
+    guid: 71fcc3bc229f7cf4582bc36ff75c24ee
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d75a994b64c85004e93917ff0fd2a645, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

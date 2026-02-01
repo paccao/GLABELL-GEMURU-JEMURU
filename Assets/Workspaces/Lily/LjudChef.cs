@@ -21,14 +21,14 @@ public class LjudChef : MonoBehaviour
     private EventInstance musikEvent;
     private Bus musikbus;
     
-    [Header("Dessa variabler används för närvarande inte.")]
-    public MaskLjud maskljud;
-    public UILjud uILjud;
-    public IntroLjud introLjud;
-    public AffärsLjud affärsLjud;
-    public FiskLjud fiskLjud;
-    public FiskLjud maskeradFiskLjud;
-    public MusikScript musikLjud;
+    // [Header("Dessa variabler används för närvarande inte.")]
+    // public MaskLjud maskljud;
+    // public UILjud uILjud;
+    // public IntroLjud introLjud;
+    // public AffärsLjud affärsLjud;
+    // public FiskLjud fiskLjud;
+    // public FiskLjud maskeradFiskLjud;
+    // public MusikScript musikLjud;
     
     private void Awake()
     {
@@ -59,6 +59,7 @@ public class LjudChef : MonoBehaviour
         switch (nya.name)
         {
             case "START":
+                musikljud.StoppaSegerMusik();
                 musikljud.SpelaMenyMusik();
                 ambiansljud.StartaUnderVatten();
                 break;
@@ -67,8 +68,14 @@ public class LjudChef : MonoBehaviour
                 ambiansljud.StartaUnderVatten();
                 break;
             case "Shop":
+                musikljud.StoppaSegerMusik();
                 musikljud.SpelaAffärsMusik();
                 ambiansljud.StartaOvanförVatten();
+                break;
+            case "Victory":
+                musikljud.SpelaSegerMusik();
+                ambiansljud.StartaOvanförVatten();
+                musikljud.StoppaStridsMusik();
                 break;
             default:
                 Debug.Log("No new scene?");
