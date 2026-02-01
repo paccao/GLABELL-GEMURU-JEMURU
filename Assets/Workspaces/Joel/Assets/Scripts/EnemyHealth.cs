@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private Enemy enemy;
     
-    public UnityEvent OnDeath;
+    public UnityEvent OnDeath, OnHit;
 
     //public TMP_Text healthText;
     
@@ -36,6 +36,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Damage(float damageAmount)
     {
         health -= damageAmount;
+		OnHit.Invoke();
         UpdateHealthTxt();
         if (health <= 0)
         {
@@ -44,6 +45,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         else
         {
             enemy.fiskLjud.SpelaTräffLjud();
+			
         }
     }
 
