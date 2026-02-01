@@ -1212,9 +1212,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2146204368}
     - target: {fileID: 6239207534193274067, guid: ea1d464df51c3374586c7fcf44edd05a, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239207534193274067, guid: ea1d464df51c3374586c7fcf44edd05a, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 1796573033521888240, guid: 0c574294258e0014cacf109de369d31b, type: 3}
+    - target: {fileID: 6239207534193274067, guid: ea1d464df51c3374586c7fcf44edd05a, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1796573033521888240, guid: ba325743521c37b47be375e49ba954b4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
