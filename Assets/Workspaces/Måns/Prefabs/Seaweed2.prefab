@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9dbb36f15bf4b354aba6cf3f77b803d3, type: 2}
+    - target: {fileID: -787141429326784033, guid: d194e2c1df33311408c9999b3ac34c6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dbb36f15bf4b354aba6cf3f77b803d3, type: 2}
     - target: {fileID: 919132149155446097, guid: d194e2c1df33311408c9999b3ac34c6a, type: 3}
       propertyPath: m_Name
       value: Seaweed2
@@ -96,7 +100,15 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9dbb36f15bf4b354aba6cf3f77b803d3, type: 2}
+    - target: {fileID: 976723959910379622, guid: d194e2c1df33311408c9999b3ac34c6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dbb36f15bf4b354aba6cf3f77b803d3, type: 2}
     - target: {fileID: 1512191506632812556, guid: d194e2c1df33311408c9999b3ac34c6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dbb36f15bf4b354aba6cf3f77b803d3, type: 2}
+    - target: {fileID: 6272350532052637613, guid: d194e2c1df33311408c9999b3ac34c6a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9dbb36f15bf4b354aba6cf3f77b803d3, type: 2}

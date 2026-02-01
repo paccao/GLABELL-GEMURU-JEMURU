@@ -11,10 +11,36 @@ public class Shop : MonoBehaviour
     public int rangePrice = 50;
     public int speedPrice = 20;
     public AffärsLjud ljud;
+    public GameObject rangeUpgrade;
+    public GameObject speedUpgrade;
+    public GameObject damageUpgrade;
 
     void Awake()
     {
         currencyManager = CurrencyManager.Instance;
+        
+        
+    }
+
+    public void Start()
+    {
+        if (currencyManager.attackUpgraded)
+        {
+            damageUpgrade.SetActive(false);
+            damageBought = true;
+        }
+        
+        if (currencyManager.sppedUpgraded)
+        {
+            speedUpgrade.SetActive(false);
+            speedBought = true;
+        }
+
+        if (currencyManager.rangeUpgraded)
+        {
+            rangeUpgrade.SetActive(false);
+            rangeBought = true;
+        }
     }
     
     public void BuyDamage()

@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Music, Mixing
+  m_text: 'Music, Audio, Wiggles
 
 '
   m_isRightToLeft: 0
