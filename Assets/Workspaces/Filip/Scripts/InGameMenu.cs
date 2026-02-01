@@ -20,7 +20,7 @@ public class InGameMenu : MonoBehaviour
         }
     }
 
-    void OnPause()
+    public void OnPause()
     {
         if (!isPaused)
         {

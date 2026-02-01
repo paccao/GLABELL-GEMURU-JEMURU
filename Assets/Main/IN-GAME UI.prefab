@@ -542,7 +542,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8671731190439940872}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1566798810975052391}
+        m_TargetAssemblyTypeName: InGameMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5157613187911042174
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2242807745075525145
 RectTransform:
   m_ObjectHideFlags: 0
@@ -787,6 +799,7 @@ GameObject:
   - component: {fileID: 2074527958517538811}
   - component: {fileID: 5175834834124242372}
   - component: {fileID: 3294179329612166895}
+  - component: {fileID: 5060364779162895431}
   m_Layer: 5
   m_Name: MAIN MENU
   m_TagString: Untagged
@@ -895,7 +908,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5175834834124242372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5060364779162895431}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5060364779162895431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7976291366009237298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b7c40aa3dc17943b26508473482550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: START
 --- !u!1 &8054415274245818279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,9 +1393,41 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7271482029530249406}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: "N\xE4rV\xE4rdet\xC4ndras"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MixerSliderLink, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4512832529689889514, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
       propertyPath: m_Name
       value: MSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663792057372586260, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: vcaPath
+      value: vca:/Music
       objectReference: {fileID: 0}
     - target: {fileID: 5733620222130126463, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
       propertyPath: m_Color.b
@@ -1385,6 +1455,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3956660854881969840, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
   m_PrefabInstance: {fileID: 3058131886407043498}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7271482029530249406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5663792057372586260, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+  m_PrefabInstance: {fileID: 3058131886407043498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70af552573ae134da659c8228f7f8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8274133690164026551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1535,9 +1616,41 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4344412467029257635}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: "N\xE4rV\xE4rdet\xC4ndras"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MixerSliderLink, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007289932645234165, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4512832529689889514, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
       propertyPath: m_Name
       value: LSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663792057372586260, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+      propertyPath: vcaPath
+      value: vca:/SFX
       objectReference: {fileID: 0}
     - target: {fileID: 5733620222130126463, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
       propertyPath: m_Color.b
@@ -1560,6 +1673,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+--- !u!114 &4344412467029257635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5663792057372586260, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
+  m_PrefabInstance: {fileID: 8274133690164026551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70af552573ae134da659c8228f7f8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4916596902104889863 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3956660854881969840, guid: 0a87f5e807c12d34ab67299e00bb3093, type: 3}
