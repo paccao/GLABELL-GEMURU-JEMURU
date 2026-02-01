@@ -15,7 +15,7 @@ public class LjudChef : MonoBehaviour
     
     
     [Header("Musik & Ambians")]
-    [SerializeField] private MusikScript musikljud;
+    public MusikScript musikljud;
     [SerializeField] private AmbiansLjud ambiansljud;
 
     private EventInstance musikEvent;

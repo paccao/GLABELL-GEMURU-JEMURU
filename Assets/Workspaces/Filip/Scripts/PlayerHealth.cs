@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Death()
     {
-        playerMovement.maskLjud.SpelaDöLjud();
+        LjudChef.Instans.musikljud.SpelaFörlustMusik();
         OnDeath.Invoke();
     }
 
