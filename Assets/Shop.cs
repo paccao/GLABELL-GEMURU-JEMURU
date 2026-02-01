@@ -52,6 +52,9 @@ public class Shop : MonoBehaviour
         }
         
         CurrencyManager.Instance.RemoveMoney(damagePrice);
+        damageUpgrade.SetActive(false);
+        ljud.SpelaKöpLjud();
+        damageBought = true;
         currencyManager.attackUpgraded = true;
     }
     
@@ -64,6 +67,8 @@ public class Shop : MonoBehaviour
         }
         
         CurrencyManager.Instance.RemoveMoney(rangePrice);
+        rangeUpgrade.SetActive(false);
+        ljud.SpelaKöpLjud();
         rangeBought = true;
         currencyManager.rangeUpgraded = true;
     }
@@ -77,7 +82,9 @@ public class Shop : MonoBehaviour
         }
         
         CurrencyManager.Instance.RemoveMoney(speedPrice);
-        
+        speedUpgrade.SetActive(false);
+        ljud.SpelaKöpLjud();
+        speedBought = true;
         currencyManager.sppedUpgraded = true;
     }
 }
