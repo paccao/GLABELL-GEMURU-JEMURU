@@ -118,12 +118,14 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Pause");
             Time.timeScale = 0;
             isPaused = true;
+            LjudChef.Instans.PausaMusiken(true);
         }
         else if (isPaused)
         {
             Debug.Log("Resume");
             Time.timeScale = 1;
             isPaused = false;
+            LjudChef.Instans.PausaMusiken(false);
         }
     }
 }
