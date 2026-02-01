@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     
     private float attackBetween = 0.1F;
     private AnimationController animationController;
-    
-    private bool isPaused = false;
     private bool isAttacking = false;
     
     public CurrencyManager currencyManager;
@@ -109,23 +107,5 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         
         isAttacking = false;
-    }
-    
-    void OnPause()
-    {
-        if (!isPaused)
-        {
-            Debug.Log("Pause");
-            Time.timeScale = 0;
-            isPaused = true;
-            LjudChef.Instans.PausaMusiken(true);
-        }
-        else if (isPaused)
-        {
-            Debug.Log("Resume");
-            Time.timeScale = 1;
-            isPaused = false;
-            LjudChef.Instans.PausaMusiken(false);
-        }
     }
 }
