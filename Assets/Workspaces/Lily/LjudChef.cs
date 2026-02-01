@@ -19,6 +19,7 @@ public class LjudChef : MonoBehaviour
     [SerializeField] private AmbiansLjud ambiansljud;
 
     private EventInstance musikEvent;
+    private Bus musikbus;
     
     [Header("Dessa variabler används för närvarande inte.")]
     public MaskLjud maskljud;
@@ -42,12 +43,14 @@ public class LjudChef : MonoBehaviour
             DontDestroyOnLoad(this);
             RuntimeManager.StudioSystem.getBank("Master", out mästarbanken);
             mästarbanken.loadSampleData();
+            musikbus = RuntimeManager.GetBus("bus:/Master/Music");
             if (SceneManager.GetActiveScene().name == "START")
             {
                 StartaMusik();
             }
 
             SceneManager.activeSceneChanged += OnSceneChange;
+            
         }
     }
     
@@ -71,6 +74,11 @@ public class LjudChef : MonoBehaviour
                 Debug.Log("No new scene?");
                 break;
         }
+    }
+
+    public void PausaMusiken(bool paused)
+    {
+        musikbus.setPaused(paused);
     }
 
     public void StartaMusik()
