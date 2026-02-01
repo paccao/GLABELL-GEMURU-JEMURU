@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Workspaces.Joel.Assets.Scripts
 {
@@ -82,8 +83,8 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 Destroy(gameObject);
             }
-
-            // Find the player in the scene
+            
+            // Save a reference to the player which different scenes use. This will become outdated, call UpdatePlayerReference if this is null
             Player = GameObject.FindGameObjectWithTag("Player");
 
             // Ensure we have at least some default configurations
@@ -113,6 +114,34 @@ namespace Workspaces.Joel.Assets.Scripts
                 currentPhaseStartTime = gameTimer;
                 
                 // Debug.Log($"Entered {spawnPhaseConfigs[CurrentPhase].phaseName}");
+            }
+        }
+        
+        private void OnEnable()
+        {
+            // Subscribe to scene loaded event
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            // Unsubscribe to prevent memory leaks
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            UpdatePlayerReference();
+        }
+
+        public void UpdatePlayerReference()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            
+            // Optional: Null check for safety
+            if (Player == null)
+            {
+                Debug.LogWarning("No player found in the current scene, something is misconfigured.");
             }
         }
         

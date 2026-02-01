@@ -25,7 +25,7 @@ namespace Workspaces.Joel.Assets.Scripts
         [Header("Sound stuffs")] 
         [SerializeField] public FiskLjud fiskLjud;
 
-        private void Awake()
+        private void Start()
         {
             player = GameManager.Instance.Player;
             currentPhaseConfig = GameManager.Instance.GetCurrentPhaseConfig();
@@ -33,10 +33,17 @@ namespace Workspaces.Joel.Assets.Scripts
 
             movementSpeed *= currentPhaseConfig.enemySpeedMultiplier;
             healthComponent.maxHealth *= currentPhaseConfig.enemyHealthMultiplier;
+            Debug.Log("Enemy: Maxhealth after multiplyer: {healthComponent.maxHealth} ");
+            Debug.Log("Enemy: movementSpeed after multiplyer: {maxHealth} ");
         }
         
         private void FixedUpdate()
         {
+            if (player == null)
+            {
+                GameManager.Instance.UpdatePlayerReference();
+            }
+            
             Vector3 directionToPlayer = player.transform.position - transform.position;
             directionToPlayer.Normalize();
             DetectPlayer(directionToPlayer);
