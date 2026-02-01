@@ -89560,6 +89560,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: ForceModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: NoiseModule.strength.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 841189098978505263, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: ForceModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: NoiseModule.strength.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034536798071431182, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6880544708630314068, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
       propertyPath: m_Name
       value: PS-BubblesBurst
