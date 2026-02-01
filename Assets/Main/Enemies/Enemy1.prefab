@@ -466,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS-BubblesBurst
       objectReference: {fileID: 0}
+    - target: {fileID: 6880544708630314068, guid: 8cd0ce561e16a80439b996b256ee61a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

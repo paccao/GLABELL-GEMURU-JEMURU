@@ -45,7 +45,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         else
         {
             enemy.fiskLjud.SpelaTräffLjud();
-			
         }
     }
 
@@ -55,8 +54,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             currencyManager.AddMoney(1);
         currencyManager.AddScore(1);
         enemy.fiskLjud.SpelaDöLjud();
-        OnDeath.Invoke();
         //Note from programmer: inte okej...
+        Debug.Log("DÖD");
         Destroy(gameObject);
     }
 

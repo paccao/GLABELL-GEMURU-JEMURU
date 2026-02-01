@@ -114,9 +114,10 @@ namespace Workspaces.Joel.Assets.Scripts
 
         IEnumerator AttackCooldown()
         {
+            yield return new WaitForSeconds(1);
             isAttacking = true;
             hitBox.SetActive(true);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.1f);
             hitBox.SetActive(false);
             isAttacking = false;
         }

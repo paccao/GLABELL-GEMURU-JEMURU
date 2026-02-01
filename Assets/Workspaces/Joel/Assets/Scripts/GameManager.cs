@@ -99,7 +99,7 @@ namespace Workspaces.Joel.Assets.Scripts
                 gameTimer += Time.deltaTime;
             }
 
-            Debug.Log(gameTimer);
+            //Debug.Log(gameTimer);
             // Calculate the current phase
             int newPhase = Mathf.FloorToInt(gameTimer / phaseDuration);
             
