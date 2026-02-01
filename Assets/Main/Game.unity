@@ -2520,11 +2520,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[2].gracePeriod
-      value: 0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[3].gracePeriod
-      value: 0.9
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[4].gracePeriod
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[5].gracePeriod
@@ -2532,7 +2536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[2].spawnInterval
-      value: 7.11
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[3].spawnInterval
@@ -2540,15 +2544,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[5].spawnInterval
-      value: 4.19
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[2].maxEnemiesPerWave
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[2].minEnemiesPerWave
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[3].maxEnemiesPerWave
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[3].minEnemiesPerWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[4].minEnemiesPerWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[5].maxEnemiesPerWave
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[5].minEnemiesPerWave
-      value: 21
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
+      propertyPath: spawnPhaseConfigs.Array.data[2].enemySpeedMultiplier
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[4].enemySpeedMultiplier
@@ -2560,15 +2588,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[2].enemyHealthMultiplier
-      value: 1
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[3].enemyHealthMultiplier
-      value: 1.4
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[4].enemyHealthMultiplier
-      value: 2.76
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1510828633837581163, guid: ba5eaf404b17d9d47a2161b0cbb607d8, type: 3}
       propertyPath: spawnPhaseConfigs.Array.data[5].enemyHealthMultiplier

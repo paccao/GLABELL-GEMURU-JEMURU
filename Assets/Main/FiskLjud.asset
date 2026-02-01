@@ -26,3 +26,10 @@ MonoBehaviour:
       Data3: 33055400
       Data4: 215752205
     Path: event:/SFX/ENEMIES/FISH_HIT
+  hitmask:
+    Guid:
+      Data1: -1397916130
+      Data2: 1249678769
+      Data3: -1502098530
+      Data4: 750510319
+    Path: event:/SFX/ENEMIES/FISH_HIT_MASK

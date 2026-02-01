@@ -26,3 +26,10 @@ MonoBehaviour:
       Data3: -1320807784
       Data4: 1874639406
     Path: event:/SFX/UI/UI_HOVER
+  uiStart:
+    Guid:
+      Data1: -2083499016
+      Data2: 1305034295
+      Data3: 1740857272
+      Data4: 2133294799
+    Path: event:/SFX/UI/START_GAME

@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UILjud", menuName = "Scriptable Objects/UILjud")]
 public class UILjud : ScriptableObject
 {
-    public EventReference uiKlick, uiSväva;
+    public EventReference uiKlick, uiSväva, uiStart;
 
     public void Klick()
     {
@@ -14,5 +14,10 @@ public class UILjud : ScriptableObject
     public void Sväva()
     {
         LjudChef.Instans.SpelaEnskottsLjud(uiSväva);
+    }
+
+    public void StartaSpelet()
+    {
+        RuntimeManager.PlayOneShot(uiStart);
     }
 }

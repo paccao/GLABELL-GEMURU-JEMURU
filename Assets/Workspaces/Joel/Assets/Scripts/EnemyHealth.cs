@@ -44,7 +44,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
         else
         {
-            enemy.fiskLjud.SpelaTräffLjud();
+            if (isMasked)
+            {
+                enemy.fiskLjud.SpelaMaskTräffLjud();
+            }
+            else
+            {
+                enemy.fiskLjud.SpelaTräffLjud();
+            }
         }
     }
 
