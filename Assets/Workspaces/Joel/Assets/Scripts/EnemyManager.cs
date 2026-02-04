@@ -50,10 +50,10 @@ namespace Workspaces.Joel.Assets.Scripts
 
             // Enemies spawn along the bounds of the Background object
             Bounds bounds = backgroundRenderer.bounds;
-    
+
             // Determine the number of enemies to spawn based on the current phase configuration
             int enemiesToSpawn = Random.Range(
-                currentPhaseConfig.minEnemiesPerWave, 
+                currentPhaseConfig.minEnemiesPerWave,
                 currentPhaseConfig.maxEnemiesPerWave
             );
 
@@ -65,32 +65,32 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.min.x - spawnOffsetFromEdge, 
-                        Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
+                        bounds.min.x - spawnOffsetFromEdge,
+                        Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop),
                         0
                     )
                 );
             }
-    
+
             // Spawn on Right Side
             for (int i = 0; i < enemiesPerSide; i++)
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.max.x + spawnOffsetFromEdge, 
-                        Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop), 
+                        bounds.max.x + spawnOffsetFromEdge,
+                        Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop),
                         0
                     )
                 );
             }
-    
+
             // Spawn on Bottom Side
             for (int i = 0; i < enemiesPerSide; i++)
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        Random.Range(bounds.min.x, bounds.max.x), 
-                        bounds.min.y - spawnOffsetFromEdge, 
+                        Random.Range(bounds.min.x, bounds.max.x),
+                        bounds.min.y - spawnOffsetFromEdge,
                         0
                     )
                 );

@@ -6,23 +6,30 @@ namespace Workspaces.Joel.Assets.Scripts
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private float range = 0f;
-        [SerializeField] private float rotateSpeed = 0f;
-        [SerializeField] private float movementSpeed = 0f;
-        [SerializeField] private float attackOffset = 2f;
+        [SerializeField] internal float range = 0f;
+        [SerializeField] internal float rotateSpeed = 0f;
+        [SerializeField] internal float movementSpeed = 0f;
+        [SerializeField] internal float attackOffset = 2f;
         [SerializeField] private LayerMask maskToHit;
         private GameManager.EnemySpawnPhaseConfig currentPhaseConfig;
         private EnemyHealth healthComponent;
-        private GameObject player;
+        internal GameObject player;
 
-        [SerializeField] private float directionChangeTimer = 3f;
-        private float directionChangeDuration;
-        private Vector3 currentRandomDirection;
-        
-        private bool isAttacking = false;
+        [SerializeField] internal float directionChangeTimer = 3f;
+        internal float directionChangeDuration;
+        internal Vector3 currentRandomDirection;
+
         public GameObject hitBox;
 
-        [Header("Sound stuffs")] 
+        // TODO: remove serializeField
+        [SerializeField] private EnemyState currentState;
+        [SerializeField] internal bool isIdle = false;
+        [SerializeField] internal bool isSeeking = false;
+        [SerializeField] internal bool isChasing = false;
+        [SerializeField] internal bool isAttacking = false;
+        [SerializeField] internal bool isRecharging = false;
+
+        [Header("Sound stuffs")]
         [SerializeField] public FiskLjud fiskLjud;
 
         private void Start()
@@ -33,86 +40,79 @@ namespace Workspaces.Joel.Assets.Scripts
 
             movementSpeed *= currentPhaseConfig.enemySpeedMultiplier;
             healthComponent.maxHealth *= currentPhaseConfig.enemyHealthMultiplier;
+
+            // Set random enemy behaviour
+            int randomInitialState = Random.Range(0, 1);
+            if (randomInitialState == 0)
+            {
+                isSeeking = true;
+                currentState = new EnemySeekingState(this);
+            }
+            else if (randomInitialState == 1)
+            {
+                // If the enemy gets idle state they will not change behaviour, e.g chase the player
+                isIdle = true;
+                currentState = new EnemyIdleState(this);
+            }
+            Debug.Log(randomInitialState);
+
+            currentState.Enter();
         }
-        
+
         private void FixedUpdate()
         {
             if (player == null)
             {
                 GameManager.Instance.UpdatePlayerReference();
             }
-            
-            Vector3 directionToPlayer = player.transform.position - transform.position;
-            directionToPlayer.Normalize();
-            DetectPlayer(directionToPlayer);
+
+            if (!isIdle) DetectPlayer();
         }
 
-        private void DetectPlayer(Vector3 directionToPlayer)
+        public void ChangeState(EnemyState newState)
         {
+            currentState.Exit();
+            currentState = newState;
+            currentState.Enter();
+        }
+
+        private void DetectPlayer()
+        {
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            directionToPlayer.Normalize();
+
             Ray ray = new Ray(transform.position, directionToPlayer);
-            RaycastHit hitInfo;
 
             // Enemy in range of player
-            if (Physics.Raycast(ray, out hitInfo, range, maskToHit))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, range, maskToHit))
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.green);
-                
-                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-                // Smoothly rotate towards player
-                var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
-                
-                // Move towards player only if not at attack offset
-                if (distanceToPlayer > attackOffset)
-                {
-                    Vector3 directionToPlayerNormalized = (player.transform.position - transform.position).normalized;
-                    Vector3 targetPosition = player.transform.position - (directionToPlayerNormalized * attackOffset);
-            
-                    transform.position = Vector3.MoveTowards(
-                        transform.position, 
-                        targetPosition, 
-                        movementSpeed * Time.deltaTime
-                    );
-                }
-                else if(!isAttacking)
-                {
-                    DoAttack();
-                }
+                isSeeking = false;
+                isRecharging = false;
+
+                isChasing = true;
             }
-            
             // Enemy not in range of player
             else
             {
                 Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.red);
 
-                // Update direction change timer
-                directionChangeTimer += Time.deltaTime;
+                isChasing = false;
+                isRecharging = false;
 
-                // Check if it's time to change direction
-                if (directionChangeTimer >= directionChangeDuration)
-                {
-                    // Reset timer and set a new random direction
-                    SetNewRandomDirection();
-                }
-
-                // Fish "floaty" movement behaviour
-                transform.position = Vector3.MoveTowards(
-                    transform.position, 
-                    player.transform.position, 
-                    movementSpeed * Time.deltaTime
-                );
-                transform.position += currentRandomDirection * movementSpeed * Time.deltaTime;
+                Debug.Log("Seeking!");
+                isSeeking = true;
             }
         }
-        
-        void DoAttack()
+
+        internal void DoAttack()
         {
             if (isAttacking) return;
             StartCoroutine(AttackCooldown());
         }
 
-        IEnumerator AttackCooldown()
+        internal IEnumerator AttackCooldown()
         {
             yield return new WaitForSeconds(1);
             isAttacking = true;
@@ -120,22 +120,6 @@ namespace Workspaces.Joel.Assets.Scripts
             yield return new WaitForSeconds(0.1f);
             hitBox.SetActive(false);
             isAttacking = false;
-        }
-        
-        void SetNewRandomDirection()
-        {
-            // Generate random direction in X and Y plane
-            currentRandomDirection = new Vector3(
-                Random.Range(-1f, 1f),
-                Random.Range(-1f, 1f),
-                0f
-            ).normalized;
-
-            // Reset the timer
-            directionChangeTimer = 0f;
-
-            // Set a new random duration between 2.5 and 3.5 seconds
-            directionChangeDuration = Random.Range(2.5f, 3.5f);
         }
     }
 }
