@@ -31,6 +31,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         health = maxHealth;
         
         UpdateHealthTxt();
+
     }
 
     public void Damage(float damageAmount)
@@ -38,6 +39,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         health -= damageAmount;
 		OnHit.Invoke();
         UpdateHealthTxt();
+
         if (health <= 0)
         {
             Death();
