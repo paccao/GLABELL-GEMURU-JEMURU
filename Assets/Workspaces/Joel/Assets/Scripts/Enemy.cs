@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,18 +20,12 @@ namespace Workspaces.Joel.Assets.Scripts
         internal float directionChangeDuration;
         internal Vector3 currentRandomDirection;
 
-        public GameObject hitBox;
-
-        // TODO: remove serializeField
-        [SerializeField] private EnemyState currentState;
-        [SerializeField] internal bool isIdle = false;
-        [SerializeField] internal bool isSeeking = false;
-        [SerializeField] internal bool isChasing = false;
-        [SerializeField] internal bool isAttacking = false;
-        [SerializeField] internal bool isRecharging = false;
+        [SerializeField] GameObject hitBox;
 
         [Header("Sound stuffs")]
         [SerializeField] public FiskLjud fiskLjud;
+
+        private bool isAttacking = false;
 
         private void Start()
         {
@@ -40,23 +35,6 @@ namespace Workspaces.Joel.Assets.Scripts
 
             movementSpeed *= currentPhaseConfig.enemySpeedMultiplier;
             healthComponent.maxHealth *= currentPhaseConfig.enemyHealthMultiplier;
-
-            // Set random enemy behaviour
-            int randomInitialState = Random.Range(0, 1);
-            if (randomInitialState == 0)
-            {
-                isSeeking = true;
-                currentState = new EnemySeekingState(this);
-            }
-            else if (randomInitialState == 1)
-            {
-                // If the enemy gets idle state they will not change behaviour, e.g chase the player
-                isIdle = true;
-                currentState = new EnemyIdleState(this);
-            }
-            Debug.Log(randomInitialState);
-
-            currentState.Enter();
         }
 
         private void FixedUpdate()
@@ -66,14 +44,7 @@ namespace Workspaces.Joel.Assets.Scripts
                 GameManager.Instance.UpdatePlayerReference();
             }
 
-            if (!isIdle) DetectPlayer();
-        }
-
-        public void ChangeState(EnemyState newState)
-        {
-            currentState.Exit();
-            currentState = newState;
-            currentState.Enter();
+            DetectPlayer();
         }
 
         private void DetectPlayer()
@@ -87,22 +58,13 @@ namespace Workspaces.Joel.Assets.Scripts
             if (Physics.Raycast(ray, out RaycastHit hitInfo, range, maskToHit))
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.green);
-
-                isSeeking = false;
-                isRecharging = false;
-
-                isChasing = true;
+                HandleChasingState();
             }
             // Enemy not in range of player
             else
             {
                 Debug.DrawLine(ray.origin, ray.origin + ray.direction * range, Color.red);
-
-                isChasing = false;
-                isRecharging = false;
-
-                Debug.Log("Seeking!");
-                isSeeking = true;
+                HandleSeekingState();
             }
         }
 
@@ -120,6 +82,68 @@ namespace Workspaces.Joel.Assets.Scripts
             yield return new WaitForSeconds(0.1f);
             hitBox.SetActive(false);
             isAttacking = false;
+        }
+
+        private void SetNewRandomDirection()
+        {
+            currentRandomDirection = new Vector3(
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 1f),
+                0f
+            ).normalized;
+
+            directionChangeTimer = 0f;
+            directionChangeDuration = Random.Range(2.5f, 3.5f);
+        }
+
+        private void HandleIdleState() {
+
+        }
+
+        private void HandleSeekingState() {
+            // Update direction change timer
+            directionChangeTimer += Time.deltaTime;
+
+            // Check if it's time to change direction
+            if (directionChangeTimer >= directionChangeDuration)
+            {
+                SetNewRandomDirection();
+            }
+
+            // Fish "floaty" movement behaviour
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                player.transform.position,
+                movementSpeed * Time.deltaTime
+            );
+            transform.position += currentRandomDirection * movementSpeed * Time.deltaTime;
+        }
+
+        private void HandleChasingState() {
+
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            // Smoothly rotate towards player
+            var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+
+            // Move towards player only if not at attack offset
+            if (distanceToPlayer > attackOffset)
+            {
+                Vector3 directionToPlayerNormalized = (player.transform.position - transform.position).normalized;
+                Vector3 targetPosition = player.transform.position - (directionToPlayerNormalized * attackOffset);
+
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    targetPosition,
+                    movementSpeed * Time.deltaTime
+                );
+
+                if (!isAttacking)
+                {
+                    DoAttack();
+                }
+            }
         }
     }
 }

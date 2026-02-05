@@ -139,7 +139,7 @@ namespace Workspaces.Joel.Assets.Scripts
             Player = GameObject.FindGameObjectWithTag("Player");
 
             // Optional: Null check for safety
-            if (Player == null)
+            if (Player == null && SceneManager.GetActiveScene().name != "Shop")
             {
                 Debug.LogWarning("No player found in the current scene, something is misconfigured.");
             }
