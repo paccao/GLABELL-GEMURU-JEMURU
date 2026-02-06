@@ -96,10 +96,6 @@ namespace Workspaces.Joel.Assets.Scripts
             directionChangeDuration = Random.Range(2.5f, 3.5f);
         }
 
-        private void HandleIdleState() {
-
-        }
-
         private void HandleSeekingState() {
             // Update direction change timer
             directionChangeTimer += Time.deltaTime;
