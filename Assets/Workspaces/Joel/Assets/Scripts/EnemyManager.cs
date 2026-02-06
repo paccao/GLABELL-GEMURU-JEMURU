@@ -6,6 +6,7 @@ namespace Workspaces.Joel.Assets.Scripts
 {
     public class EnemyManager : MonoBehaviour
     {
+        public static EnemyManager Instance { get; private set; }
         public GameObject enemySpawnBox;
 
         public GameObject[] enemyPrefabs;
@@ -13,8 +14,34 @@ namespace Workspaces.Joel.Assets.Scripts
         [Header("Spawn box offsets")] // Used to spawn enemies slightly outside
         public float spawnOffsetFromEdge = 1f;
         public float spawnOffsetFromTop = 1f;
+        public Bounds spawnerBackgroundBounds;
 
         private float spawnTimer = 0f;
+        private Renderer backgroundRenderer;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            } else
+            {
+                Destroy(this);
+            }
+        }
+
+        private void Start()
+        {
+            backgroundRenderer = enemySpawnBox.GetComponent<Renderer>();
+            if (backgroundRenderer == null)
+            {
+                Debug.LogError("Background object must have a Renderer component!");
+                return;
+            }
+
+            // Enemies spawn along the bounds of the Background object
+            spawnerBackgroundBounds = backgroundRenderer.bounds;
+        }
 
         private void Update()
         {
@@ -40,16 +67,11 @@ namespace Workspaces.Joel.Assets.Scripts
 
         private void SpawnEnemiesAtEdges(GameManager.EnemySpawnPhaseConfig currentPhaseConfig)
         {
-            // Get the renderer to calculate bounds
-            Renderer backgroundRenderer = enemySpawnBox.GetComponent<Renderer>();
             if (backgroundRenderer == null)
             {
                 Debug.LogError("Background object must have a Renderer component!");
                 return;
             }
-
-            // Enemies spawn along the bounds of the Background object
-            Bounds bounds = backgroundRenderer.bounds;
 
             // Determine the number of enemies to spawn based on the current phase configuration
             int enemiesToSpawn = Random.Range(
@@ -65,10 +87,10 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.min.x - spawnOffsetFromEdge,
-                        Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop),
+                        spawnerBackgroundBounds.min.x - spawnOffsetFromEdge,
+                        Random.Range(spawnerBackgroundBounds.min.y, spawnerBackgroundBounds.max.y - spawnOffsetFromTop),
                         0
-                    )
+                    ), new Vector3(0,90,0) // look right
                 );
             }
 
@@ -77,10 +99,10 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        bounds.max.x + spawnOffsetFromEdge,
-                        Random.Range(bounds.min.y, bounds.max.y - spawnOffsetFromTop),
+                        spawnerBackgroundBounds.max.x + spawnOffsetFromEdge,
+                        Random.Range(spawnerBackgroundBounds.min.y, spawnerBackgroundBounds.max.y - spawnOffsetFromTop),
                         0
-                    )
+                    ), new Vector3(0,-90,0) // look left
                 );
             }
 
@@ -89,20 +111,20 @@ namespace Workspaces.Joel.Assets.Scripts
             {
                 SpawnEnemiesAlongEdge(
                     new Vector3(
-                        Random.Range(bounds.min.x, bounds.max.x),
-                        bounds.min.y - spawnOffsetFromEdge,
+                        Random.Range(spawnerBackgroundBounds.min.x, spawnerBackgroundBounds.max.x),
+                        spawnerBackgroundBounds.min.y - spawnOffsetFromEdge,
                         0
-                    )
+                    ), Vector3.zero
                 );
             }
         }
 
         private void SpawnEnemiesAlongEdge(
-            Vector3 spawnPosition)
+            Vector3 spawnPosition, Vector3 spawnRotation)
         {
             // Choose a random enemy prefab
             GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-            Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
+            Instantiate(enemyToSpawn, spawnPosition, Quaternion.Euler(spawnRotation));
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Workspaces.Joel.Assets.Scripts
         [SerializeField] public FiskLjud fiskLjud;
 
         private bool isAttacking = false;
+        public bool isIdle = false; // TODO: private
 
         private void Start()
         {
@@ -35,6 +36,10 @@ namespace Workspaces.Joel.Assets.Scripts
 
             movementSpeed *= currentPhaseConfig.enemySpeedMultiplier;
             healthComponent.maxHealth *= currentPhaseConfig.enemyHealthMultiplier;
+
+            if (Random.value < 0.5f) {
+                isIdle = true;
+            }
         }
 
         private void FixedUpdate()
@@ -44,7 +49,11 @@ namespace Workspaces.Joel.Assets.Scripts
                 GameManager.Instance.UpdatePlayerReference();
             }
 
-            DetectPlayer();
+            if (!isIdle) DetectPlayer();
+            else {
+                Debug.Log("Idle fish");
+                HandleIdleState();
+            }
         }
 
         private void DetectPlayer()
@@ -97,7 +106,18 @@ namespace Workspaces.Joel.Assets.Scripts
         }
 
         private void HandleIdleState() {
-
+            if(transform.position.x <=
+                EnemyManager.Instance.spawnerBackgroundBounds.min.x - EnemyManager.Instance.spawnOffsetFromEdge
+            ) {
+                transform.eulerAngles = new Vector3(0,90,0); // look right
+            } else if (
+                transform.position.x >=
+                EnemyManager.Instance.spawnerBackgroundBounds.max.x + EnemyManager.Instance.spawnOffsetFromEdge
+            )
+            {
+                transform.eulerAngles = new Vector3(0,-90,0); // look left
+            }
+            transform.position += transform.forward * movementSpeed * Time.deltaTime;
         }
 
         private void HandleSeekingState() {
